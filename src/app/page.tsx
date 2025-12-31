@@ -65,7 +65,7 @@ export default async function HomePage() {
 
       {/* Parallax Stats Section - Company achievements */}
       <ParallaxStatsSection
-        image="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80"
+        image="/images/optimized/parallax-1.webp"
         headline="Building Ethiopia's Future"
         stats={[
           { value: '10', suffix: '+', label: 'Industries' },
@@ -90,7 +90,7 @@ export default async function HomePage() {
 
       {/* Parallax Divider - Visual break before news */}
       <ParallaxDivider
-        image="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=80"
+        image="/images/optimized/parallax-2.webp"
         alt="Ethiopian landscape"
       />
 
