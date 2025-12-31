@@ -22,9 +22,12 @@ const DIRECTUS_URL = process.env.NEXT_PUBLIC_DIRECTUS_URL || 'http://localhost:8
 // In production (HTTPS), we use our Next.js API proxy to avoid mixed content
 // In development (HTTP), we connect directly to Directus
 function getApiBaseUrl(): string {
-  // Server-side rendering - always use direct URL (server can access HTTP)
+  // Check if we're in production (Vercel deployment)
+  const isProduction = process.env.VERCEL_URL || process.env.NODE_ENV === 'production';
+
+  // Server-side rendering in production - use proxy route
   if (typeof window === 'undefined') {
-    return DIRECTUS_URL;
+    return isProduction ? '/api/directus' : DIRECTUS_URL;
   }
 
   // Client-side - use proxy if on HTTPS to avoid mixed content blocking
