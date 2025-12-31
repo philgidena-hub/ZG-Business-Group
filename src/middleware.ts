@@ -6,7 +6,7 @@ import type { NextRequest } from 'next/server';
 // Easily disable site by setting SITE_ACTIVE=false
 // =====================================================
 
-export function middleware(request: NextRequest) {
+export function middleware(_request: NextRequest) {
   // Check if site is active (default to true if not set)
   const siteActive = process.env.SITE_ACTIVE !== 'false';
 
@@ -75,6 +75,22 @@ export function middleware(request: NextRequest) {
             a:hover {
               text-decoration: underline;
             }
+            .easter-egg {
+              position: fixed;
+              bottom: 10px;
+              right: 10px;
+              font-size: 0.75rem;
+              opacity: 0.15;
+              color: #d4af37;
+              font-family: monospace;
+              letter-spacing: 0.05em;
+              transition: opacity 0.3s ease;
+              cursor: default;
+              user-select: none;
+            }
+            .easter-egg:hover {
+              opacity: 0.8;
+            }
           </style>
         </head>
         <body>
@@ -93,6 +109,7 @@ export function middleware(request: NextRequest) {
               <p><a href="mailto:info@zgbusinessgroup.com">info@zgbusinessgroup.com</a></p>
             </div>
           </div>
+          <div class="easter-egg">// TODO: Pay developer</div>
         </body>
       </html>
       `,
