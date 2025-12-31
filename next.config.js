@@ -1,5 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Environment variables (hardcoded for deployment)
+  env: {
+    NEXT_PUBLIC_DIRECTUS_URL: 'http://52.29.229.59:8055',
+    NEXT_PUBLIC_SITE_URL: process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : 'http://localhost:3000',
+  },
+
   // Image optimization configuration
   images: {
     remotePatterns: [
