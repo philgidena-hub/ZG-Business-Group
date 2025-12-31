@@ -77,7 +77,11 @@ export function Industries() {
   useEffect(() => {
     async function fetchSectors() {
       try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_DIRECTUS_URL}/items/business_sectors`);
+        // Use proxy route in production (HTTPS) to avoid mixed content blocking
+        const apiUrl = window.location.protocol === 'https:'
+          ? '/api/directus/items/business_sectors'
+          : `${process.env.NEXT_PUBLIC_DIRECTUS_URL}/items/business_sectors`;
+        const res = await fetch(apiUrl);
         if (!res.ok) throw new Error('Failed to fetch industries');
         const data = await res.json();
         setSectors(data.data || []);

@@ -37,7 +37,11 @@ export function FeaturedProject() {
   useEffect(() => {
     async function fetchProject() {
       try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_DIRECTUS_URL}/items/projects?limit=1`);
+        // Use proxy route in production (HTTPS) to avoid mixed content blocking
+        const apiUrl = window.location.protocol === 'https:'
+          ? '/api/directus/items/projects?limit=1'
+          : `${process.env.NEXT_PUBLIC_DIRECTUS_URL}/items/projects?limit=1`;
+        const res = await fetch(apiUrl);
         if (!res.ok) throw new Error('Failed to fetch project');
         const data = await res.json();
         if (data.data && data.data.length > 0) {

@@ -38,7 +38,11 @@ export function LatestNews() {
   useEffect(() => {
     async function fetchNews() {
       try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_DIRECTUS_URL}/items/news?limit=3`);
+        // Use proxy route in production (HTTPS) to avoid mixed content blocking
+        const apiUrl = window.location.protocol === 'https:'
+          ? '/api/directus/items/news?limit=3'
+          : `${process.env.NEXT_PUBLIC_DIRECTUS_URL}/items/news?limit=3`;
+        const res = await fetch(apiUrl);
         if (!res.ok) throw new Error('Failed to fetch news');
         const data = await res.json();
         setNews(data.data || []);
