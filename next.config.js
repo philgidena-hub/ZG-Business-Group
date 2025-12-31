@@ -20,12 +20,20 @@ const nextConfig = {
         hostname: 'images.unsplash.com',
       },
       {
-        // Directus CMS server
+        // Directus CMS server - HTTP (for local development)
         protocol: 'http',
         hostname: '52.29.229.59',
         port: '8055',
       },
+      {
+        // Local API proxy route
+        protocol: 'https',
+        hostname: 'zg-business-group.vercel.app',
+      },
     ],
+    // Disable built-in image optimization for Directus assets in production
+    // We'll serve them directly through the proxy
+    unoptimized: false,
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
