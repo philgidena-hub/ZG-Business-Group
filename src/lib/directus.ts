@@ -18,6 +18,12 @@ import type {
 // Environment variables
 const DIRECTUS_URL = process.env.NEXT_PUBLIC_DIRECTUS_URL || 'http://localhost:8055';
 
+// Use API proxy route for production to avoid mixed content issues
+// In production (HTTPS), we use our Next.js API proxy
+// In development (HTTP), we connect directly to Directus
+const isProduction = typeof window !== 'undefined' && window.location.protocol === 'https:';
+const API_BASE_URL = isProduction ? '/api/directus' : DIRECTUS_URL;
+
 // Create Directus client
 const directus = createDirectus(DIRECTUS_URL).with(rest());
 
@@ -47,7 +53,7 @@ async function fetchCollection<T>(
   }
 
   const queryString = params.toString();
-  const url = `${DIRECTUS_URL}/items/${collection}${queryString ? `?${queryString}` : ''}`;
+  const url = `${API_BASE_URL}/items/${collection}${queryString ? `?${queryString}` : ''}`;
 
   try {
     const response = await fetch(url, {
@@ -70,7 +76,7 @@ async function fetchCollection<T>(
 }
 
 async function fetchSingleton<T>(collection: string): Promise<T | null> {
-  const url = `${DIRECTUS_URL}/items/${collection}`;
+  const url = `${API_BASE_URL}/items/${collection}`;
 
   try {
     const response = await fetch(url, {
@@ -349,7 +355,7 @@ export function getAssetUrl(assetId: string | null | undefined, options?: {
   // Handle both UUID asset IDs and path-based references
   // If it starts with /, it's a path - strip the leading slash for assets endpoint
   const cleanId = assetId.startsWith('/') ? assetId.slice(1) : assetId;
-  let url = `${DIRECTUS_URL}/assets/${cleanId}`;
+  let url = `${API_BASE_URL}/assets/${cleanId}`;
 
   // Apply preset if specified, otherwise use individual options
   const preset = options?.preset ? imagePresets[options.preset] : null;
