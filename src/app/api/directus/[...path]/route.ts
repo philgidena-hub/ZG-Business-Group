@@ -21,9 +21,6 @@ export async function GET(
     console.log('Proxying GET request to:', url);
 
     const response = await fetch(url, {
-      headers: {
-        'Content-Type': 'application/json',
-      },
       // Add timeout to prevent hanging requests
       signal: AbortSignal.timeout(15000),
     });
@@ -33,8 +30,22 @@ export async function GET(
       throw new Error(`Directus API error: ${response.status}`);
     }
 
-    const data = await response.json();
+    const contentType = response.headers.get('content-type');
 
+    // Handle image/binary responses
+    if (contentType?.startsWith('image/') || path.startsWith('assets/')) {
+      const blob = await response.blob();
+      return new NextResponse(blob, {
+        status: response.status,
+        headers: {
+          'Content-Type': contentType || 'application/octet-stream',
+          'Cache-Control': 'public, max-age=31536000, immutable',
+        },
+      });
+    }
+
+    // Handle JSON responses
+    const data = await response.json();
     return NextResponse.json(data, {
       status: response.status,
       headers: {
