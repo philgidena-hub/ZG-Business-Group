@@ -21,6 +21,37 @@ AWWWARDS-level corporate website for ZG Business Group, Ethiopia's premier diver
 - 🌐 Infinite scrolling partner logos marquee
 - 🎬 Smooth scroll animations and transitions
 - ♿ Accessibility-focused (WCAG compliant)
+- 🔒 Maintenance mode toggle for easy site control
+
+## Maintenance Mode
+
+The site includes a built-in maintenance mode that can be toggled via environment variable. This is useful for temporarily disabling the site while keeping the deployment active.
+
+### Enable Maintenance Mode
+
+1. Go to your Vercel project dashboard
+2. Navigate to **Settings** → **Environment Variables**
+3. Add a new environment variable:
+   - **Name**: `SITE_ACTIVE`
+   - **Value**: `false`
+   - **Environment**: Production (or all environments)
+4. Click **Save**
+5. Redeploy the site (Settings → Deployments → click "..." on latest deployment → Redeploy)
+
+The site will now show a professional maintenance page to all visitors.
+
+### Disable Maintenance Mode (Re-enable Site)
+
+1. Go to Vercel project dashboard
+2. Navigate to **Settings** → **Environment Variables**
+3. Find the `SITE_ACTIVE` variable
+4. Either:
+   - Delete it completely, OR
+   - Change the value to `true`
+5. Click **Save**
+6. Redeploy the site
+
+The site will be fully functional again within 1-2 minutes.
 
 ## Getting Started
 
