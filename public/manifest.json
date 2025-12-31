@@ -1,0 +1,16 @@
+{
+  "name": "ZG Business Group",
+  "short_name": "ZG Group",
+  "description": "Building Ethiopia's tomorrow through diversified, ethical enterprise across 10 industries since 2008.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAF8F5",
+  "theme_color": "#C4A035",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    }
+  ]
+}
