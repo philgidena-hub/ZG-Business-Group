@@ -83,7 +83,7 @@ export function Header({ transparent = false }: HeaderProps) {
             className={cn(
               'flex items-center justify-between',
               'transition-all duration-normal',
-              isScrolled ? 'h-18' : 'h-24 lg:h-28'
+              isScrolled ? 'h-20' : 'h-28 lg:h-32'
             )}
           >
             {/* Logo */}
@@ -173,10 +173,10 @@ function Logo({ isScrolled, isMenuOpen, transparent }: LogoProps) {
       <Image
         src="/gallery/ZG Business Group logo.svg"
         alt="ZG Business Group"
-        width={240}
-        height={67}
+        width={320}
+        height={90}
         className={cn(
-          'h-14 sm:h-16 lg:h-20 w-auto transition-all duration-300',
+          'h-16 sm:h-20 lg:h-24 w-auto transition-all duration-300',
           useWhiteVersion && 'brightness-0 invert'
         )}
         priority
