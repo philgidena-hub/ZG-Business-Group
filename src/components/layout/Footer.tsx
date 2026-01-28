@@ -164,9 +164,9 @@ export function Footer() {
               <Image
                 src="/gallery/ZG Business Group logo.svg"
                 alt="ZG Business Group"
-                width={200}
-                height={56}
-                className="h-14 w-auto brightness-0 invert transition-opacity duration-300 group-hover:opacity-80"
+                width={280}
+                height={80}
+                className="h-20 w-auto brightness-0 invert transition-opacity duration-300 group-hover:opacity-80"
               />
             </Link>
 

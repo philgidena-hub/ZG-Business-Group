@@ -96,7 +96,7 @@ export function Testimonials() {
 
   const slideVariants = {
     enter: (direction: number) => ({
-      x: direction > 0 ? 100 : -100,
+      x: direction > 0 ? 80 : -80,
       opacity: 0,
     }),
     center: {
@@ -104,73 +104,102 @@ export function Testimonials() {
       opacity: 1,
     },
     exit: (direction: number) => ({
-      x: direction < 0 ? 100 : -100,
+      x: direction < 0 ? 80 : -80,
       opacity: 0,
     }),
   };
 
   return (
     <section
-      className="relative py-20 md:py-28 lg:py-36 bg-paper-white overflow-hidden"
+      className="relative py-24 md:py-32 lg:py-40 bg-earth-anchor overflow-hidden"
       aria-label="Testimonials"
     >
-      {/* Background decoration */}
+      {/* Background Elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-neutral-50 to-transparent" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 rounded-full bg-highland-gold/5 blur-3xl" />
+        {/* Subtle pattern */}
+        <div
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.4) 1px, transparent 0)`,
+            backgroundSize: '40px 40px',
+          }}
+        />
+        {/* Gold accent glow */}
+        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-highland-gold/5 blur-[150px]" />
+        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full bg-highland-gold/3 blur-[100px]" />
       </div>
 
       <Container className="relative z-10">
         {/* Section header */}
-        <FadeIn className="text-center mb-12 md:mb-16">
+        <FadeIn className="text-center mb-16 md:mb-20">
           <Text
             size="caption"
-            color="gold"
-            className="uppercase tracking-wider mb-3"
+            className="text-highland-gold uppercase tracking-[0.25em] mb-4"
           >
-            What People Say
+            Trusted By Leaders
           </Text>
-          <Heading as="h2" size="h2" className="text-earth-anchor">
-            Testimonials
+          <Heading as="h2" size="h2" className="text-paper-white">
+            What People Say
           </Heading>
         </FadeIn>
 
         {/* Testimonial content */}
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 items-center">
-          {/* Image side */}
-          <div className="lg:col-span-5 relative">
-            <div className="relative max-w-sm mx-auto lg:mx-0">
-              {/* Decorative elements */}
-              <div className="absolute -inset-4 border border-highland-gold/20 rounded-2xl" />
-              <div className="absolute -top-3 -left-3 w-20 h-20 border-t-2 border-l-2 border-highland-gold rounded-tl-2xl" />
-              <div className="absolute -bottom-3 -right-3 w-20 h-20 border-b-2 border-r-2 border-highland-gold rounded-br-2xl" />
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+            {/* Image side */}
+            <div className="lg:col-span-5 relative order-2 lg:order-1">
+              <div className="relative max-w-md mx-auto">
+                {/* Decorative frame */}
+                <div className="absolute -inset-6 border border-highland-gold/20 rounded-2xl" />
+                <div className="absolute -top-4 -left-4 w-24 h-24 border-t-2 border-l-2 border-highland-gold rounded-tl-2xl" />
+                <div className="absolute -bottom-4 -right-4 w-24 h-24 border-b-2 border-r-2 border-highland-gold rounded-br-2xl" />
 
-              {/* Image container */}
-              <AnimatePresence mode="wait" custom={direction}>
+                {/* Gold accent line */}
+                <div className="absolute -left-6 top-1/2 -translate-y-1/2 w-1 h-32 bg-gradient-to-b from-transparent via-highland-gold to-transparent" />
+
+                {/* Image container */}
+                <AnimatePresence mode="wait" custom={direction}>
+                  <motion.div
+                    key={currentTestimonial.id}
+                    custom={direction}
+                    variants={slideVariants}
+                    initial="enter"
+                    animate="center"
+                    exit="exit"
+                    transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                    className="relative aspect-[4/5] overflow-hidden rounded-xl bg-earth-anchor/50"
+                  >
+                    <Image
+                      src={currentTestimonial.image}
+                      alt={currentTestimonial.name}
+                      fill
+                      className="object-cover object-top"
+                      sizes="(max-width: 768px) 100vw, 400px"
+                    />
+                    {/* Gradient overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-earth-anchor via-transparent to-transparent opacity-60" />
+                  </motion.div>
+                </AnimatePresence>
+
+                {/* Name badge on image */}
                 <motion.div
-                  key={currentTestimonial.id}
-                  custom={direction}
-                  variants={slideVariants}
-                  initial="enter"
-                  animate="center"
-                  exit="exit"
-                  transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                  className="relative aspect-square overflow-hidden rounded-xl bg-neutral-100"
+                  key={`badge-${currentTestimonial.id}`}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3, duration: 0.5 }}
+                  className="absolute -bottom-3 left-6 right-6 bg-highland-gold px-4 py-3 rounded-lg shadow-xl"
                 >
-                  <Image
-                    src={currentTestimonial.image}
-                    alt={currentTestimonial.name}
-                    fill
-                    className="object-cover object-top"
-                    sizes="(max-width: 768px) 100vw, 400px"
-                  />
-                  {/* Subtle gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-earth-anchor/20 via-transparent to-transparent" />
+                  <p className="text-earth-anchor font-semibold text-sm truncate">
+                    {currentTestimonial.name}
+                  </p>
+                  <p className="text-earth-anchor/70 text-xs truncate">
+                    {currentTestimonial.title}
+                  </p>
                 </motion.div>
-              </AnimatePresence>
+              </div>
 
-              {/* Navigation dots */}
-              <div className="flex justify-center gap-2 mt-6">
+              {/* Navigation dots - mobile */}
+              <div className="flex justify-center gap-2 mt-12 lg:hidden">
                 {testimonials.map((_, index) => (
                   <button
                     key={index}
@@ -179,96 +208,120 @@ export function Testimonials() {
                       setActiveIndex(index);
                     }}
                     className={cn(
-                      'w-2 h-2 rounded-full transition-all duration-300',
+                      'h-2 rounded-full transition-all duration-300',
                       index === activeIndex
                         ? 'w-8 bg-highland-gold'
-                        : 'bg-neutral-300 hover:bg-neutral-400'
+                        : 'w-2 bg-paper-white/30 hover:bg-paper-white/50'
                     )}
                     aria-label={`Go to testimonial ${index + 1}`}
                   />
                 ))}
               </div>
             </div>
-          </div>
 
-          {/* Quote side */}
-          <div className="lg:col-span-7">
-            <AnimatePresence mode="wait" custom={direction}>
-              <motion.div
-                key={currentTestimonial.id}
-                custom={direction}
-                variants={slideVariants}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-              >
-                {/* Quote mark */}
-                <div className="text-highland-gold/20 mb-4">
-                  <svg
-                    className="w-12 h-12 md:w-16 md:h-16"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z" />
-                  </svg>
+            {/* Quote side */}
+            <div className="lg:col-span-7 order-1 lg:order-2">
+              <AnimatePresence mode="wait" custom={direction}>
+                <motion.div
+                  key={currentTestimonial.id}
+                  custom={direction}
+                  variants={slideVariants}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                  className="relative"
+                >
+                  {/* Large quote mark */}
+                  <div className="absolute -top-6 -left-4 text-highland-gold/10">
+                    <svg
+                      className="w-20 h-20 md:w-28 md:h-28"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z" />
+                    </svg>
+                  </div>
+
+                  {/* Quote text */}
+                  <blockquote className="relative z-10 mb-10">
+                    <p className="text-xl md:text-2xl lg:text-3xl text-paper-white leading-relaxed font-light">
+                      "{currentTestimonial.quote}"
+                    </p>
+                  </blockquote>
+
+                  {/* Attribution - desktop */}
+                  <div className="hidden lg:block">
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-px bg-highland-gold" />
+                      <div>
+                        <p className="text-paper-white font-semibold text-lg">
+                          {currentTestimonial.name}
+                        </p>
+                        <p className="text-paper-white/60 text-sm mt-0.5">
+                          {currentTestimonial.title}
+                          {currentTestimonial.organization && (
+                            <span className="text-highland-gold"> — {currentTestimonial.organization}</span>
+                          )}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+
+              {/* Navigation controls - desktop */}
+              <div className="hidden lg:flex items-center justify-between mt-12 pt-8 border-t border-paper-white/10">
+                {/* Progress indicator */}
+                <div className="flex items-center gap-3">
+                  <span className="text-highland-gold font-semibold text-2xl">
+                    {String(activeIndex + 1).padStart(2, '0')}
+                  </span>
+                  <div className="w-24 h-0.5 bg-paper-white/10 rounded-full overflow-hidden">
+                    <motion.div
+                      className="h-full bg-highland-gold"
+                      initial={{ width: 0 }}
+                      animate={{ width: `${((activeIndex + 1) / testimonials.length) * 100}%` }}
+                      transition={{ duration: 0.3 }}
+                    />
+                  </div>
+                  <span className="text-paper-white/40 text-sm">
+                    {String(testimonials.length).padStart(2, '0')}
+                  </span>
                 </div>
 
-                {/* Quote text */}
-                <blockquote className="mb-8">
-                  <p className="text-lg md:text-xl lg:text-2xl text-earth-anchor leading-relaxed font-light italic">
-                    "{currentTestimonial.quote}"
-                  </p>
-                </blockquote>
-
-                {/* Attribution */}
-                <div className="border-l-2 border-highland-gold pl-4">
-                  <Text size="lg" weight="semibold" className="text-earth-anchor">
-                    {currentTestimonial.name}
-                  </Text>
-                  <Text size="sm" color="muted" className="mt-1">
-                    {currentTestimonial.title}
-                    {currentTestimonial.organization && (
-                      <>
-                        <br />
-                        <span className="text-highland-gold">{currentTestimonial.organization}</span>
-                      </>
+                {/* Arrow buttons */}
+                <div className="flex gap-3">
+                  <button
+                    onClick={prevTestimonial}
+                    className={cn(
+                      'w-12 h-12 flex items-center justify-center rounded-full',
+                      'border border-paper-white/20 bg-transparent',
+                      'text-paper-white hover:bg-highland-gold hover:border-highland-gold hover:text-earth-anchor',
+                      'transition-all duration-300'
                     )}
-                  </Text>
+                    aria-label="Previous testimonial"
+                  >
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                    </svg>
+                  </button>
+                  <button
+                    onClick={nextTestimonial}
+                    className={cn(
+                      'w-12 h-12 flex items-center justify-center rounded-full',
+                      'border border-paper-white/20 bg-transparent',
+                      'text-paper-white hover:bg-highland-gold hover:border-highland-gold hover:text-earth-anchor',
+                      'transition-all duration-300'
+                    )}
+                    aria-label="Next testimonial"
+                  >
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
                 </div>
-              </motion.div>
-            </AnimatePresence>
-
-            {/* Navigation arrows */}
-            <div className="flex gap-3 mt-8">
-              <button
-                onClick={prevTestimonial}
-                className={cn(
-                  'w-12 h-12 flex items-center justify-center rounded-full',
-                  'border border-neutral-200 bg-white',
-                  'text-earth-anchor hover:bg-highland-gold hover:border-highland-gold hover:text-white',
-                  'transition-all duration-300'
-                )}
-                aria-label="Previous testimonial"
-              >
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-                </svg>
-              </button>
-              <button
-                onClick={nextTestimonial}
-                className={cn(
-                  'w-12 h-12 flex items-center justify-center rounded-full',
-                  'border border-neutral-200 bg-white',
-                  'text-earth-anchor hover:bg-highland-gold hover:border-highland-gold hover:text-white',
-                  'transition-all duration-300'
-                )}
-                aria-label="Next testimonial"
-              >
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
+              </div>
             </div>
           </div>
         </div>
