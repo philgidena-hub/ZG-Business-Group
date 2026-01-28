@@ -173,10 +173,10 @@ function Logo({ isScrolled, isMenuOpen, transparent }: LogoProps) {
       <Image
         src="/gallery/ZG Business Group logo.svg"
         alt="ZG Business Group"
-        width={180}
-        height={50}
+        width={240}
+        height={67}
         className={cn(
-          'h-10 sm:h-12 w-auto transition-all duration-300',
+          'h-14 sm:h-16 lg:h-20 w-auto transition-all duration-300',
           useWhiteVersion && 'brightness-0 invert'
         )}
         priority
