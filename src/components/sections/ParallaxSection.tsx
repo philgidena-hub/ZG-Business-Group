@@ -190,11 +190,14 @@ export function ParallaxStatsSection({
       className="relative flex items-center justify-center h-screen overflow-hidden"
       style={{ clipPath: 'polygon(0% 0, 100% 0%, 100% 100%, 0 100%)' }}
     >
-      {/* Content with mix-blend-difference */}
-      <div className="relative z-10 p-8 md:p-20 mix-blend-difference text-white w-full h-full flex flex-col justify-center">
+      {/* Dark overlay for text readability */}
+      <div className="absolute inset-0 bg-earth-anchor/60 z-[5]" />
+
+      {/* Content */}
+      <div className="relative z-10 p-8 md:p-20 text-white w-full h-full flex flex-col justify-center">
         <Container>
           {headline && (
-            <h2 className="text-[4vw] md:text-[2.5vw] font-semibold text-center mb-12 md:mb-16 uppercase">
+            <h2 className="text-[4vw] md:text-[2.5vw] font-semibold text-center mb-12 md:mb-16 uppercase drop-shadow-lg">
               {headline}
             </h2>
           )}
@@ -202,13 +205,13 @@ export function ParallaxStatsSection({
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
             {stats.map((stat) => (
               <div key={stat.label} className="text-center">
-                <div className="text-[8vw] md:text-[5vw] font-bold leading-none mb-2">
+                <div className="text-[8vw] md:text-[5vw] font-bold leading-none mb-2 drop-shadow-lg">
                   {stat.value}
                   {stat.suffix && (
-                    <span className="text-[5vw] md:text-[3vw]">{stat.suffix}</span>
+                    <span className="text-[5vw] md:text-[3vw] text-highland-gold">{stat.suffix}</span>
                   )}
                 </div>
-                <p className="text-[2.5vw] md:text-[1vw] uppercase tracking-wider opacity-70">
+                <p className="text-[2.5vw] md:text-[1vw] uppercase tracking-wider opacity-90">
                   {stat.label}
                 </p>
               </div>

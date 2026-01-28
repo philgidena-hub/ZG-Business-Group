@@ -149,41 +149,41 @@ export function Introduction({
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Vision Card */}
                 <motion.div
-                  className="group p-6 bg-neutral-50 rounded-xl border border-neutral-100 hover:border-highland-gold/30 hover:shadow-lg transition-all duration-300"
+                  className="group p-6 bg-earth-anchor rounded-xl hover:shadow-xl transition-all duration-300"
                   whileHover={{ y: -4 }}
                 >
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 rounded-full bg-highland-gold/10 flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-full bg-highland-gold/20 flex items-center justify-center">
                       <svg className="w-5 h-5 text-highland-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
                         <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                       </svg>
                     </div>
-                    <Text size="caption" color="gold" className="uppercase tracking-wider font-medium">
+                    <Text size="caption" className="uppercase tracking-wider font-medium text-highland-gold">
                       Our Vision
                     </Text>
                   </div>
-                  <Text size="base" className="text-neutral-700">
+                  <Text size="base" className="text-paper-white/90">
                     {displayVision}
                   </Text>
                 </motion.div>
 
                 {/* Mission Card */}
                 <motion.div
-                  className="group p-6 bg-neutral-50 rounded-xl border border-neutral-100 hover:border-highland-gold/30 hover:shadow-lg transition-all duration-300"
+                  className="group p-6 bg-earth-anchor rounded-xl hover:shadow-xl transition-all duration-300"
                   whileHover={{ y: -4 }}
                 >
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 rounded-full bg-highland-gold/10 flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-full bg-highland-gold/20 flex items-center justify-center">
                       <svg className="w-5 h-5 text-highland-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
                       </svg>
                     </div>
-                    <Text size="caption" color="gold" className="uppercase tracking-wider font-medium">
+                    <Text size="caption" className="uppercase tracking-wider font-medium text-highland-gold">
                       Our Mission
                     </Text>
                   </div>
-                  <Text size="base" className="text-neutral-700">
+                  <Text size="base" className="text-paper-white/90">
                     {displayMission}
                   </Text>
                 </motion.div>

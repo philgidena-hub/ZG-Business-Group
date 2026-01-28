@@ -279,40 +279,10 @@ export const csrInitiatives: Partial<CSRInitiative>[] = [
 ];
 
 // ─────────────────────────────────────────────────
-// Partner Logos (placeholder data)
+// Partner Logos
 // ─────────────────────────────────────────────────
 
 export const partnerLogos = [
-  {
-    name: 'Ethiopian Airlines',
-    slug: 'ethiopian-airlines',
-    logo: '/partner logos/ethiopian airlines.png',
-  },
-  {
-    name: 'Commercial Bank of Ethiopia',
-    slug: 'cbe',
-    logo: '/partner logos/commercial-bank-of-ethiopia.png',
-  },
-  {
-    name: 'Ethiopian Investment Commission',
-    slug: 'eic',
-    logo: '/partner logos/Ethiopian-Investment-Commission.jpg',
-  },
-  {
-    name: 'African Development Bank',
-    slug: 'afdb',
-    logo: '/partner logos/african development bank.png',
-  },
-  {
-    name: 'USAID',
-    slug: 'usaid',
-    logo: '/partner logos/USAID.png',
-  },
-  {
-    name: 'World Bank',
-    slug: 'world-bank',
-    logo: '/partner logos/world bank.png',
-  },
   {
     name: 'Famsun',
     slug: 'famsun',
