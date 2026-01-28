@@ -197,7 +197,7 @@ export function ParallaxStatsSection({
       <div className="relative z-10 p-8 md:p-20 text-white w-full h-full flex flex-col justify-center">
         <Container>
           {headline && (
-            <h2 className="text-[4vw] md:text-[2.5vw] font-semibold text-center mb-12 md:mb-16 uppercase drop-shadow-lg">
+            <h2 className="text-[4vw] md:text-[2.5vw] font-semibold text-center mb-12 md:mb-16 uppercase text-paper-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
               {headline}
             </h2>
           )}
@@ -205,13 +205,13 @@ export function ParallaxStatsSection({
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
             {stats.map((stat) => (
               <div key={stat.label} className="text-center">
-                <div className="text-[8vw] md:text-[5vw] font-bold leading-none mb-2 drop-shadow-lg">
+                <div className="text-[8vw] md:text-[5vw] font-bold leading-none mb-2 text-paper-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
                   {stat.value}
                   {stat.suffix && (
                     <span className="text-[5vw] md:text-[3vw] text-highland-gold">{stat.suffix}</span>
                   )}
                 </div>
-                <p className="text-[2.5vw] md:text-[1vw] uppercase tracking-wider opacity-90">
+                <p className="text-[2.5vw] md:text-[1vw] uppercase tracking-wider text-paper-white/90">
                   {stat.label}
                 </p>
               </div>
