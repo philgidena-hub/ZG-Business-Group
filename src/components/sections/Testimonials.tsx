@@ -223,7 +223,7 @@ export function Testimonials() {
 
                 {/* Attribution */}
                 <div className="border-l-2 border-highland-gold pl-4">
-                  <Text size="lg" weight="semibold" color="dark">
+                  <Text size="lg" weight="semibold" className="text-earth-anchor">
                     {currentTestimonial.name}
                   </Text>
                   <Text size="sm" color="muted" className="mt-1">
