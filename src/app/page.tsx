@@ -5,6 +5,7 @@ import {
   FeaturedProject,
   ImpactQuote,
   CommunityImpact,
+  Testimonials,
   LatestNews,
   Partners,
   ParallaxStatsSection,
@@ -87,6 +88,9 @@ export default async function HomePage() {
 
       {/* Community Impact - CSR initiatives */}
       <CommunityImpact />
+
+      {/* Testimonials - Partner and government endorsements */}
+      <Testimonials />
 
       {/* Parallax Divider - Visual break before news */}
       <ParallaxDivider

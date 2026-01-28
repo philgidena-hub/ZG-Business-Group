@@ -20,6 +20,8 @@ export { LatestNews } from './LatestNews';
 
 export { Partners } from './Partners';
 
+export { Testimonials } from './Testimonials';
+
 // Parallax Sections
 export {
   ParallaxSection,
