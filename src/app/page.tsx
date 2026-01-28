@@ -67,7 +67,7 @@ export default async function HomePage() {
 
       {/* Parallax Stats Section - Company achievements */}
       <ParallaxStatsSection
-        image="/images/optimized/parallax-1.webp"
+        image="/parallax_one.jpg"
         headline="Building Ethiopia's Future"
         stats={[
           { value: '10', suffix: '+', label: 'Industries' },
@@ -98,8 +98,8 @@ export default async function HomePage() {
 
       {/* Parallax Divider - Visual break before news */}
       <ParallaxDivider
-        image="/images/optimized/parallax-2.webp"
-        alt="Ethiopian landscape"
+        image="/parallax_two.jpg"
+        alt="ZG Business Group Headquarters"
       />
 
       {/* Latest News - Recent articles */}

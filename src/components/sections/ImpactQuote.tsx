@@ -102,10 +102,10 @@ export function ImpactQuote({ quote, author, title }: ImpactQuoteProps) {
                   style={{ scale: imageScale }}
                 >
                   <Image
-                    src="/gallery/CEO Doctor Zeru gebrelibanos Asefa_.jpg"
+                    src="/CEO Doctor Zeru gebrelibanos Asefa_ (1).jpg"
                     alt="Dr. Zeru Gebrelibanos Asefa - Founder & CEO"
                     fill
-                    className="object-cover object-right"
+                    className="object-cover object-center"
                     sizes="(max-width: 768px) 100vw, 40vw"
                   />
                   {/* Gradient overlay for depth */}
