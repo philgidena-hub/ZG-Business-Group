@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { Container } from '@/components/ui';
@@ -155,57 +156,31 @@ interface LogoProps {
 }
 
 function Logo({ isScrolled, isMenuOpen, transparent }: LogoProps) {
-  // Determine text color based on state:
-  // - Menu open: always white
-  // - Scrolled: always dark (has white background)
-  // - Not scrolled + transparent mode (hero): white
-  // - Not scrolled + non-transparent: dark
-  const useWhiteText = isMenuOpen || (!isScrolled && transparent);
-  const textColor = useWhiteText ? 'text-paper-white' : 'text-earth-anchor';
+  // Determine if we should use light/inverted logo based on state:
+  // - Menu open: always white version
+  // - Scrolled: dark version (has white background)
+  // - Not scrolled + transparent mode (hero): white version
+  // - Not scrolled + non-transparent: dark version
+  const useWhiteVersion = isMenuOpen || (!isScrolled && transparent);
 
   return (
     <motion.div
-      className={cn('flex items-center gap-3', textColor)}
+      className="flex items-center"
       initial={false}
-      animate={{ scale: isScrolled ? 0.9 : 1 }}
+      animate={{ scale: isScrolled ? 0.85 : 1 }}
       transition={{ duration: 0.3, ease: [0.25, 1, 0.5, 1] }}
     >
-      {/* Monogram/Icon */}
-      <div
+      <Image
+        src="/gallery/ZG Business Group logo.svg"
+        alt="ZG Business Group"
+        width={180}
+        height={50}
         className={cn(
-          'w-10 h-10 flex items-center justify-center',
-          'bg-highland-gold rounded-lg',
-          'text-earth-anchor text-lg',
-          'shadow-lg'
+          'h-10 sm:h-12 w-auto transition-all duration-300',
+          useWhiteVersion && 'brightness-0 invert'
         )}
-        style={{ fontFamily: 'var(--font-display)' }}
-      >
-        ZG
-      </div>
-
-      {/* Wordmark - always visible now for branding */}
-      <motion.div
-        className="hidden sm:flex flex-col"
-        initial={false}
-        animate={{
-          opacity: 1,
-          x: 0
-        }}
-        transition={{ duration: 0.3 }}
-      >
-        <span
-          className="text-xl tracking-tight leading-tight"
-          style={{ fontFamily: 'var(--font-display)' }}
-        >
-          ZG Business Group
-        </span>
-        <span className={cn(
-          "text-[10px] uppercase tracking-[0.15em] leading-tight",
-          useWhiteText ? 'text-white/60' : 'text-neutral-500'
-        )}>
-          Building Ethiopia
-        </span>
-      </motion.div>
+        priority
+      />
     </motion.div>
   );
 }

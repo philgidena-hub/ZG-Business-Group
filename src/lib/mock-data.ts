@@ -313,6 +313,56 @@ export const partnerLogos = [
     slug: 'world-bank',
     logo: '/partner logos/world bank.png',
   },
+  {
+    name: 'Famsun',
+    slug: 'famsun',
+    logo: '/partner logos/Famsun.png',
+  },
+  {
+    name: 'Corbus',
+    slug: 'corbus',
+    logo: '/partner logos/Corbus.png',
+  },
+  {
+    name: 'Orkide',
+    slug: 'orkide',
+    logo: '/partner logos/Orkide.png',
+  },
+  {
+    name: 'Fondazione Enrico Mattei',
+    slug: 'fondazione-mattei',
+    logo: '/partner logos/FONDAZIONE SOCIAL ECONOMIIC DEVELOPMENT ENRICO MATTEI.PNG',
+  },
+  {
+    name: 'Partner',
+    slug: 'partner-1',
+    logo: '/partner logos/IMG_8714.PNG',
+  },
+  {
+    name: 'Partner',
+    slug: 'partner-2',
+    logo: '/partner logos/IMG_8967.JPG',
+  },
+  {
+    name: 'Partner',
+    slug: 'partner-3',
+    logo: '/partner logos/IMG_8971.JPG',
+  },
+  {
+    name: 'Partner',
+    slug: 'partner-4',
+    logo: '/partner logos/IMG_8972.PNG',
+  },
+  {
+    name: 'Partner',
+    slug: 'partner-5',
+    logo: '/partner logos/IMG_8973.PNG',
+  },
+  {
+    name: 'Partner',
+    slug: 'partner-6',
+    logo: '/partner logos/IMG_8975.JPG',
+  },
 ];
 
 // ─────────────────────────────────────────────────

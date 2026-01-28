@@ -2,6 +2,7 @@
 
 import { useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { Container, Text } from '@/components/ui';
@@ -159,25 +160,14 @@ export function Footer() {
           {/* Brand Column */}
           <div className="col-span-2 md:col-span-4 lg:col-span-4">
             {/* Logo */}
-            <Link href="/" className="inline-flex items-center gap-3 mb-6 group">
-              <div
-                className={cn(
-                  'w-12 h-12 flex items-center justify-center',
-                  'bg-highland-gold rounded',
-                  'font-semibold text-earth-anchor text-xl',
-                  'transition-transform duration-300 group-hover:scale-105'
-                )}
-              >
-                ZG
-              </div>
-              <div>
-                <span className="font-semibold text-lg tracking-tight block">
-                  ZG Business Group
-                </span>
-                <span className="text-xs text-paper-white/50 uppercase tracking-wider">
-                  Building Ethiopia
-                </span>
-              </div>
+            <Link href="/" className="inline-block mb-6 group">
+              <Image
+                src="/gallery/ZG Business Group logo.svg"
+                alt="ZG Business Group"
+                width={200}
+                height={56}
+                className="h-14 w-auto brightness-0 invert transition-opacity duration-300 group-hover:opacity-80"
+              />
             </Link>
 
             {/* Tagline */}
