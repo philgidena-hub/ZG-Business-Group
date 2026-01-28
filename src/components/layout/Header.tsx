@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { Container } from '@/components/ui';
@@ -11,7 +12,7 @@ import { LanguageToggle } from './LanguageToggle';
 
 // =====================================================
 // Header Component
-// Fixed navigation with scroll-aware styling
+// Fixed navigation with horizontal menu on desktop
 // =====================================================
 
 export interface HeaderProps {
@@ -19,10 +20,21 @@ export interface HeaderProps {
   transparent?: boolean;
 }
 
+// Navigation items
+const navItems = [
+  { label: 'About', href: '/about' },
+  { label: 'Industries', href: '/industries' },
+  { label: 'Companies', href: '/companies' },
+  { label: 'Projects', href: '/projects' },
+  { label: 'Impact', href: '/impact' },
+  { label: 'News', href: '/news' },
+];
+
 export function Header({ transparent = false }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { scrollY } = useScroll();
+  const pathname = usePathname();
 
   // Track scroll position for header styling
   useMotionValueEvent(scrollY, 'change', (latest) => {
@@ -52,7 +64,8 @@ export function Header({ transparent = false }: HeaderProps) {
     return () => window.removeEventListener('keydown', handleEscape);
   }, []);
 
-  const showBackground = isScrolled && !transparent;
+  const showBackground = isScrolled || !transparent;
+  const isDarkText = isScrolled || !transparent;
 
   return (
     <>
@@ -83,7 +96,7 @@ export function Header({ transparent = false }: HeaderProps) {
             className={cn(
               'flex items-center justify-between',
               'transition-all duration-normal',
-              isScrolled ? 'h-20' : 'h-28 lg:h-32'
+              isScrolled ? 'h-18' : 'h-24'
             )}
           >
             {/* Logo */}
@@ -95,25 +108,76 @@ export function Header({ transparent = false }: HeaderProps) {
               <Logo isScrolled={isScrolled} isMenuOpen={isMenuOpen} transparent={transparent} />
             </Link>
 
+            {/* Desktop Navigation */}
+            <nav className="hidden lg:flex items-center gap-1">
+              {navItems.map((item) => {
+                const isActive = pathname === item.href || pathname.startsWith(`${item.href}/`);
+
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={cn(
+                      'relative px-4 py-2 text-sm font-medium tracking-wide',
+                      'transition-colors duration-200',
+                      isDarkText
+                        ? isActive
+                          ? 'text-highland-gold'
+                          : 'text-earth-anchor hover:text-highland-gold'
+                        : isActive
+                          ? 'text-highland-gold'
+                          : 'text-paper-white/90 hover:text-paper-white'
+                    )}
+                  >
+                    {item.label}
+                    {isActive && (
+                      <motion.span
+                        layoutId="nav-underline"
+                        className="absolute bottom-0 left-4 right-4 h-0.5 bg-highland-gold"
+                        transition={{ type: 'spring', stiffness: 500, damping: 30 }}
+                      />
+                    )}
+                  </Link>
+                );
+              })}
+            </nav>
+
             {/* Right side controls */}
-            <div className="flex items-center gap-4">
-              {/* Language Toggle */}
+            <div className="flex items-center gap-3">
+              {/* Language Toggle - Desktop */}
               <LanguageToggle
                 className={cn(
-                  'transition-colors duration-fast',
+                  'hidden md:flex transition-colors duration-fast',
                   isMenuOpen
                     ? 'text-paper-white'
-                    : isScrolled || !transparent
+                    : isDarkText
                       ? 'text-earth-anchor'
                       : 'text-paper-white'
                 )}
               />
 
-              {/* Menu Button */}
+              {/* Contact Button - Desktop */}
+              <Link
+                href="/contact"
+                className={cn(
+                  'hidden lg:flex items-center gap-2 px-5 py-2.5 rounded-full',
+                  'text-sm font-semibold transition-all duration-300',
+                  isDarkText
+                    ? 'bg-highland-gold text-earth-anchor hover:bg-highland-gold/90'
+                    : 'bg-paper-white text-earth-anchor hover:bg-paper-white/90'
+                )}
+              >
+                Contact
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Link>
+
+              {/* Mobile Menu Button */}
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className={cn(
-                  'relative z-50 w-10 h-10 flex items-center justify-center',
+                  'lg:hidden relative z-50 w-10 h-10 flex items-center justify-center',
                   'focus-ring rounded'
                 )}
                 aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
@@ -124,7 +188,7 @@ export function Header({ transparent = false }: HeaderProps) {
                   color={
                     isMenuOpen
                       ? 'white'
-                      : isScrolled || !transparent
+                      : isDarkText
                         ? 'dark'
                         : 'white'
                   }
@@ -135,7 +199,7 @@ export function Header({ transparent = false }: HeaderProps) {
         </Container>
       </motion.header>
 
-      {/* Full-screen Navigation Overlay */}
+      {/* Mobile Navigation Overlay */}
       <AnimatePresence>
         {isMenuOpen && (
           <Navigation onClose={() => setIsMenuOpen(false)} />
@@ -156,11 +220,6 @@ interface LogoProps {
 }
 
 function Logo({ isScrolled, isMenuOpen, transparent }: LogoProps) {
-  // Determine if we should use light/inverted logo based on state:
-  // - Menu open: always white version
-  // - Scrolled: dark version (has white background)
-  // - Not scrolled + transparent mode (hero): white version
-  // - Not scrolled + non-transparent: dark version
   const useWhiteVersion = isMenuOpen || (!isScrolled && transparent);
 
   return (
@@ -173,10 +232,10 @@ function Logo({ isScrolled, isMenuOpen, transparent }: LogoProps) {
       <Image
         src="/gallery/ZG Business Group logo.svg"
         alt="ZG Business Group"
-        width={320}
-        height={90}
+        width={280}
+        height={80}
         className={cn(
-          'h-16 sm:h-20 lg:h-24 w-auto transition-all duration-300',
+          'h-12 sm:h-14 lg:h-16 w-auto transition-all duration-300',
           useWhiteVersion && 'brightness-0 invert'
         )}
         priority
@@ -186,7 +245,7 @@ function Logo({ isScrolled, isMenuOpen, transparent }: LogoProps) {
 }
 
 // =====================================================
-// Menu Icon Component (Hamburger/Close)
+// Menu Icon Component (Hamburger/Close) - Mobile only
 // =====================================================
 
 interface MenuIconProps {
