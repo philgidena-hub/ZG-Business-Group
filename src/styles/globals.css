@@ -4,7 +4,7 @@
 
 /* =====================================================
    ZG BUSINESS GROUP - Design System
-   "Rooted Growth" Visual Language
+   Navy & Gold Theme
    ===================================================== */
 
 @layer base {
@@ -15,39 +15,40 @@
        ───────────────────────────────────────────────── */
 
     /* Primary Palette */
-    --color-earth-anchor: #1A1814;
-    --color-highland-gold: #C4A035;
-    --color-paper-white: #FAF8F5;
+    --color-primary: #0B1C2D;
+    --color-secondary: #C9A44C;
+    --color-tertiary: #FCFCFC;
 
-    /* Secondary Palette */
-    --color-iron-oxide: #8B4D3B;
-    --color-eucalyptus: #4A6B5D;
-    --color-coffee-earth: #3D2E2A;
+    /* Legacy aliases (for backwards compatibility) */
+    --color-earth-anchor: #0B1C2D;
+    --color-highland-gold: #C9A44C;
+    --color-paper-white: #FCFCFC;
 
     /* Functional Colors */
     --color-signal-green: #2D5A47;
-    --color-signal-amber: #B8860B;
+    --color-signal-amber: #C9A44C;
     --color-signal-red: #9B3D3D;
 
-    /* Neutral Scale */
-    --color-neutral-50: #F5F3F0;
-    --color-neutral-100: #E8E4DF;
-    --color-neutral-200: #D4CFC7;
-    --color-neutral-300: #B8B1A6;
-    --color-neutral-400: #9A948C;
-    --color-neutral-500: #7A746C;
-    --color-neutral-600: #5C5752;
-    --color-neutral-700: #3D3935;
-    --color-neutral-800: #2E2A26;
-    --color-neutral-900: #1A1814;
+    /* Neutral Scale - based on navy */
+    --color-neutral-50: #F5F6F7;
+    --color-neutral-100: #E6E9EC;
+    --color-neutral-200: #CDD3D9;
+    --color-neutral-300: #A8B3BD;
+    --color-neutral-400: #7D8B97;
+    --color-neutral-500: #5C6A77;
+    --color-neutral-600: #475663;
+    --color-neutral-700: #364250;
+    --color-neutral-800: #242E3A;
+    --color-neutral-900: #0B1C2D;
 
     /* ─────────────────────────────────────────────────
        TYPOGRAPHY
        ───────────────────────────────────────────────── */
 
     /* Font Families */
-    --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-sans: var(--font-poppins), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --font-display: var(--font-display), Georgia, 'Times New Roman', serif;
+    --font-geez: var(--font-geez), 'Nyala', 'Abyssinica SIL', serif;
     --font-mono: 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace;
 
     /* Font Sizes */
@@ -129,10 +130,10 @@
        SHADOWS
        ───────────────────────────────────────────────── */
 
-    --shadow-card: 0 4px 20px rgba(26, 24, 20, 0.05);
-    --shadow-card-hover: 0 20px 40px rgba(26, 24, 20, 0.1);
-    --shadow-nav: 0 2px 20px rgba(26, 24, 20, 0.08);
-    --shadow-modal: 0 25px 50px rgba(26, 24, 20, 0.15);
+    --shadow-card: 0 4px 20px rgba(11, 28, 45, 0.05);
+    --shadow-card-hover: 0 20px 40px rgba(11, 28, 45, 0.1);
+    --shadow-nav: 0 2px 20px rgba(11, 28, 45, 0.08);
+    --shadow-modal: 0 25px 50px rgba(11, 28, 45, 0.15);
 
     /* ─────────────────────────────────────────────────
        BORDERS & RADIUS
@@ -339,7 +340,7 @@
 
   /* Text gradient */
   .text-gradient {
-    background: linear-gradient(135deg, var(--color-highland-gold) 0%, var(--color-iron-oxide) 100%);
+    background: linear-gradient(135deg, var(--color-secondary) 0%, #A8863C 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -349,8 +350,8 @@
   .overlay-dark {
     background: linear-gradient(
       to bottom,
-      rgba(26, 24, 20, 0.4) 0%,
-      rgba(26, 24, 20, 0.6) 100%
+      rgba(11, 28, 45, 0.4) 0%,
+      rgba(11, 28, 45, 0.6) 100%
     );
   }
 
@@ -502,7 +503,7 @@
   }
 
   .glass-dark {
-    background: rgba(26, 24, 20, 0.3);
+    background: rgba(11, 28, 45, 0.3);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.05);
@@ -510,7 +511,7 @@
 
   /* Gradient text */
   .gradient-text {
-    background: linear-gradient(135deg, var(--color-highland-gold) 0%, #E4CC80 50%, var(--color-highland-gold) 100%);
+    background: linear-gradient(135deg, var(--color-secondary) 0%, #E3C98F 50%, var(--color-secondary) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -518,11 +519,11 @@
 
   /* Glow effects */
   .glow-gold {
-    box-shadow: 0 0 30px rgba(196, 160, 53, 0.3);
+    box-shadow: 0 0 30px rgba(201, 164, 76, 0.3);
   }
 
   .text-glow {
-    text-shadow: 0 0 40px rgba(196, 160, 53, 0.5);
+    text-shadow: 0 0 40px rgba(201, 164, 76, 0.5);
   }
 
   /* Smooth image reveal */
@@ -555,7 +556,7 @@
 
   .hover-lift:hover {
     transform: translateY(-8px);
-    box-shadow: 0 30px 60px rgba(26, 24, 20, 0.15);
+    box-shadow: 0 30px 60px rgba(11, 28, 45, 0.15);
   }
 
   /* Shine effect on hover */

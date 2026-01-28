@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { inter, cookConthic } from '@/lib/fonts';
+import { poppins, cookConthic } from '@/lib/fonts';
 import { Header, Footer } from '@/components/layout';
 import { SmoothScrollProvider } from '@/components/providers/SmoothScrollProvider';
 import '@/styles/globals.css';
@@ -84,8 +84,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#FAF8F5' },
-    { media: '(prefers-color-scheme: dark)', color: '#1A1814' },
+    { media: '(prefers-color-scheme: light)', color: '#FCFCFC' },
+    { media: '(prefers-color-scheme: dark)', color: '#0B1C2D' },
   ],
   width: 'device-width',
   initialScale: 1,
@@ -98,7 +98,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${cookConthic.variable}`}>
+    <html lang="en" className={`${poppins.variable} ${cookConthic.variable}`}>
       <body className="min-h-screen bg-paper-white text-earth-anchor antialiased">
         <SmoothScrollProvider>
           {/* Skip to main content link for accessibility */}

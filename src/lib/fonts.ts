@@ -1,15 +1,12 @@
-import { Inter } from 'next/font/google';
+import { Poppins } from 'next/font/google';
 import localFont from 'next/font/local';
 
-// Primary font: Inter
-// Using Inter as the primary typeface (free alternative to Söhne)
-// The variable font is loaded with all weights for flexibility
-// Font can be swapped to Söhne later by updating this file
-
-export const inter = Inter({
+// Primary font: Poppins
+// Clean, modern sans-serif typeface for body text and UI
+export const poppins = Poppins({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-inter',
+  variable: '--font-poppins',
   weight: ['300', '400', '500', '600', '700'],
   fallback: [
     '-apple-system',
@@ -41,36 +38,16 @@ export const cookConthic = localFont({
   fallback: ['Georgia', 'Times New Roman', 'serif'],
 });
 
-// Font configuration for easy Söhne swap in the future
-// When Söhne is licensed, update like this:
+// Geez font: Nokia Pure
+// For Amharic/Geez script support, add Nokia Pure font files to public/fonts/
+// and uncomment the following configuration:
 //
-// import localFont from 'next/font/local';
-//
-// export const sohne = localFont({
+// export const nokiaPure = localFont({
 //   src: [
-//     { path: './fonts/Sohne-Leicht.woff2', weight: '300', style: 'normal' },
-//     { path: './fonts/Sohne-Buch.woff2', weight: '400', style: 'normal' },
-//     { path: './fonts/Sohne-Halbfett.woff2', weight: '500', style: 'normal' },
-//     { path: './fonts/Sohne-Kraftig.woff2', weight: '600', style: 'normal' },
-//     { path: './fonts/Sohne-Dreiviertelfett.woff2', weight: '700', style: 'normal' },
+//     { path: '../../public/fonts/NokiaPure-Regular.woff2', weight: '400', style: 'normal' },
+//     { path: '../../public/fonts/NokiaPure-Bold.woff2', weight: '700', style: 'normal' },
 //   ],
-//   variable: '--font-sohne',
+//   variable: '--font-geez',
 //   display: 'swap',
-// });
-//
-// export const sohneBreit = localFont({
-//   src: [
-//     { path: './fonts/SohneBreit-Halbfett.woff2', weight: '600', style: 'normal' },
-//   ],
-//   variable: '--font-sohne-breit',
-//   display: 'swap',
-// });
-//
-// export const sohneMono = localFont({
-//   src: [
-//     { path: './fonts/SohneMono-Leicht.woff2', weight: '300', style: 'normal' },
-//     { path: './fonts/SohneMono-Buch.woff2', weight: '400', style: 'normal' },
-//   ],
-//   variable: '--font-sohne-mono',
-//   display: 'swap',
+//   fallback: ['Nyala', 'Abyssinica SIL', 'serif'],
 // });
