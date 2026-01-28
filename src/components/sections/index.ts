@@ -22,6 +22,8 @@ export { Partners } from './Partners';
 
 export { Testimonials } from './Testimonials';
 
+export { Gallery } from './Gallery';
+
 // Parallax Sections
 export {
   ParallaxSection,

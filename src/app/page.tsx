@@ -6,6 +6,7 @@ import {
   ImpactQuote,
   CommunityImpact,
   Testimonials,
+  Gallery,
   LatestNews,
   Partners,
   ParallaxStatsSection,
@@ -91,6 +92,9 @@ export default async function HomePage() {
 
       {/* Testimonials - Partner and government endorsements */}
       <Testimonials />
+
+      {/* Gallery - AWWWARDS-style bento grid */}
+      <Gallery />
 
       {/* Parallax Divider - Visual break before news */}
       <ParallaxDivider
