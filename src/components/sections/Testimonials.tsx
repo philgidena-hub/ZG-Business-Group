@@ -148,14 +148,7 @@ export function Testimonials() {
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
             {/* Image side */}
             <div className="lg:col-span-5 relative order-2 lg:order-1">
-              <div className="relative max-w-md mx-auto">
-                {/* Decorative frame */}
-                <div className="absolute -inset-6 border border-highland-gold/20 rounded-2xl" />
-                <div className="absolute -top-4 -left-4 w-24 h-24 border-t-2 border-l-2 border-highland-gold rounded-tl-2xl" />
-                <div className="absolute -bottom-4 -right-4 w-24 h-24 border-b-2 border-r-2 border-highland-gold rounded-br-2xl" />
-
-                {/* Gold accent line */}
-                <div className="absolute -left-6 top-1/2 -translate-y-1/2 w-1 h-32 bg-gradient-to-b from-transparent via-highland-gold to-transparent" />
+              <div className="relative max-w-xs mx-auto">
 
                 {/* Image container */}
                 <AnimatePresence mode="wait" custom={direction}>
@@ -167,32 +160,30 @@ export function Testimonials() {
                     animate="center"
                     exit="exit"
                     transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                    className="relative aspect-[4/5] overflow-hidden rounded-xl bg-earth-anchor/50"
+                    className="relative aspect-square overflow-hidden rounded-xl bg-transparent"
                   >
                     <Image
                       src={currentTestimonial.image}
                       alt={currentTestimonial.name}
                       fill
-                      className="object-cover object-top"
+                      className="object-contain"
                       sizes="(max-width: 768px) 100vw, 400px"
                     />
-                    {/* Gradient overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-earth-anchor via-transparent to-transparent opacity-60" />
                   </motion.div>
                 </AnimatePresence>
 
-                {/* Name badge on image */}
+                {/* Name badge below image */}
                 <motion.div
                   key={`badge-${currentTestimonial.id}`}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3, duration: 0.5 }}
-                  className="absolute -bottom-3 left-6 right-6 bg-highland-gold px-4 py-3 rounded-lg shadow-xl"
+                  className="mt-4 text-center"
                 >
-                  <p className="text-earth-anchor font-semibold text-sm truncate">
+                  <p className="text-paper-white font-semibold text-base">
                     {currentTestimonial.name}
                   </p>
-                  <p className="text-earth-anchor/70 text-xs truncate">
+                  <p className="text-highland-gold text-sm mt-1">
                     {currentTestimonial.title}
                   </p>
                 </motion.div>
