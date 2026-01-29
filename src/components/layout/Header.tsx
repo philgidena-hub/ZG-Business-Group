@@ -222,21 +222,16 @@ function Logo({ isScrolled, isMenuOpen, transparent }: LogoProps) {
   const useWhiteVersion = isMenuOpen || (!isScrolled && transparent);
 
   return (
-    <motion.div
-      className="flex items-center"
-      initial={false}
-      animate={{ scale: isScrolled ? 0.9 : 1 }}
-      transition={{ duration: 0.3, ease: [0.25, 1, 0.5, 1] }}
-    >
+    <div className="flex items-center">
       <Image
         src={useWhiteVersion ? "/gallery/ZG BUSINESS GROUP REVERSE COLOR.svg" : "/gallery/ZG Business Group logo.svg"}
         alt="ZG Business Group"
         width={400}
         height={100}
-        className="h-10 sm:h-12 lg:h-14 w-auto transition-all duration-300"
+        className="h-12 sm:h-14 lg:h-16 w-auto"
         priority
       />
-    </motion.div>
+    </div>
   );
 }
 
