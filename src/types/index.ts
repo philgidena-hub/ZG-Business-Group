@@ -96,15 +96,22 @@ export interface BusinessSector extends BaseEntity, SEOFields {
 
   // Visual
   icon?: MediaFile | string;
+  logo?: string; // Path to SVG logo
   primary_color?: string;
   hero_image?: MediaFile | string;
   thumbnail?: MediaFile;
+  gallery?: string[]; // Array of image paths
 
   // Content
   introduction?: string;
   description?: string; // From Directus API
+  full_description?: string; // Extended description for detail page
   capabilities?: Capability[];
   history?: string;
+
+  // Location
+  location?: string;
+  established?: number;
 
   // Computed
   project_count?: number;

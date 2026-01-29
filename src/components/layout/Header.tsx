@@ -23,8 +23,7 @@ export interface HeaderProps {
 // Navigation items
 const navItems = [
   { label: 'About', href: '/about' },
-  { label: 'Industries', href: '/industries' },
-  { label: 'Companies', href: '/companies' },
+  { label: 'Our Companies', href: '/industries' },
   { label: 'Projects', href: '/projects' },
   { label: 'Impact', href: '/impact' },
   { label: 'News', href: '/news' },
@@ -226,18 +225,15 @@ function Logo({ isScrolled, isMenuOpen, transparent }: LogoProps) {
     <motion.div
       className="flex items-center"
       initial={false}
-      animate={{ scale: isScrolled ? 0.85 : 1 }}
+      animate={{ scale: isScrolled ? 0.9 : 1 }}
       transition={{ duration: 0.3, ease: [0.25, 1, 0.5, 1] }}
     >
       <Image
-        src="/gallery/ZG Business Group logo.svg"
+        src={useWhiteVersion ? "/gallery/ZG BUSINESS GROUP REVERSE COLOR.svg" : "/gallery/ZG Business Group logo.svg"}
         alt="ZG Business Group"
-        width={320}
-        height={90}
-        className={cn(
-          'h-14 sm:h-16 lg:h-20 w-auto transition-all duration-300',
-          useWhiteVersion && 'brightness-0 invert'
-        )}
+        width={400}
+        height={100}
+        className="h-16 sm:h-20 lg:h-24 w-auto transition-all duration-300"
         priority
       />
     </motion.div>

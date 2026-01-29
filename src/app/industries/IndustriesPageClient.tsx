@@ -1,38 +1,17 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
-import { getIndustryImageUrl } from '@/lib/directus';
 import { Container, Section, Heading, Text, AccentLine } from '@/components/ui';
 import { FadeIn, FadeInStagger, FadeInStaggerItem } from '@/components/motion';
 import { businessSectors } from '@/lib/mock-data';
 import type { BusinessSector } from '@/types';
 
 export default function IndustriesPageClient() {
-  const [sectors, setSectors] = useState<BusinessSector[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    async function fetchSectors() {
-      try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_DIRECTUS_URL}/items/business_sectors`);
-        const data = await res.json();
-        const fetchedSectors = data.data || [];
-        // Use fetched data if available, otherwise fallback to mock data
-        setSectors(fetchedSectors.length > 0 ? fetchedSectors : businessSectors as BusinessSector[]);
-      } catch (error) {
-        console.error('Error fetching sectors:', error);
-        // Fallback to mock data on error
-        setSectors(businessSectors as BusinessSector[]);
-      } finally {
-        setLoading(false);
-      }
-    }
-    fetchSectors();
-  }, []);
+  // Use mock data directly - no Directus dependency
+  const sectors = businessSectors as BusinessSector[];
 
   return (
     <>
@@ -41,7 +20,7 @@ export default function IndustriesPageClient() {
         <Container>
           <FadeIn>
             <Text size="caption" color="gold" className="uppercase tracking-wider mb-4">
-              Our Industries
+              Our Companies
             </Text>
             <AccentLine size="lg" className="mb-8" />
           </FadeIn>
@@ -54,35 +33,28 @@ export default function IndustriesPageClient() {
 
           <FadeIn delay={0.4}>
             <Text size="lg" color="white" className="mt-6 max-w-2xl opacity-80">
-              Ten interconnected industries working together to build lasting value across Ethiopia and East Africa.
+              Eleven interconnected companies working together to build lasting value across Ethiopia and East Africa.
             </Text>
           </FadeIn>
         </Container>
       </section>
 
       {/* Industries Grid */}
-      <Section size="lg">
-        {loading ? (
-          <div className="text-center py-12">
-            <Text color="muted">Loading industries...</Text>
-          </div>
-        ) : (
-          <FadeInStagger stagger={0.1} className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {sectors.map((sector) => (
-              <FadeInStaggerItem key={sector.slug}>
-                <IndustryListCard
-                  name={sector.name}
-                  tagline={sector.tagline || ''}
-                  slug={sector.slug}
-                  introduction={sector.introduction || sector.description || ''}
-                  heroImage={typeof sector.hero_image === 'string' ? sector.hero_image : sector.hero_image?.id}
-                  projectCount={sector.project_count || 0}
-                  subsidiaryCount={sector.subsidiary_count || 0}
-                />
-              </FadeInStaggerItem>
-            ))}
-          </FadeInStagger>
-        )}
+      <Section size="lg" background="neutral">
+        <FadeInStagger stagger={0.08} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {sectors.map((sector) => (
+            <FadeInStaggerItem key={sector.slug}>
+              <IndustryListCard
+                name={sector.name}
+                tagline={sector.tagline || ''}
+                slug={sector.slug}
+                introduction={sector.introduction || sector.description || ''}
+                logo={sector.logo}
+                location={sector.location}
+              />
+            </FadeInStaggerItem>
+          ))}
+        </FadeInStagger>
       </Section>
     </>
   );
@@ -93,9 +65,8 @@ interface IndustryListCardProps {
   tagline: string;
   slug: string;
   introduction: string;
-  heroImage?: string;
-  projectCount: number;
-  subsidiaryCount: number;
+  logo?: string;
+  location?: string;
 }
 
 function IndustryListCard({
@@ -103,78 +74,87 @@ function IndustryListCard({
   tagline,
   slug,
   introduction,
-  heroImage,
+  logo,
+  location,
 }: IndustryListCardProps) {
-  const image = getIndustryImageUrl(slug, heroImage);
-
   return (
     <motion.div
-      whileHover={{ y: -8 }}
+      whileHover={{ y: -6 }}
       transition={{ type: 'spring', stiffness: 300, damping: 20 }}
     >
       <Link
         href={`/industries/${slug}`}
         className={cn(
           'group relative block overflow-hidden rounded-2xl',
-          'bg-earth-anchor h-[320px] md:h-[380px]',
-          'shadow-lg hover:shadow-2xl transition-shadow duration-500'
+          'bg-paper-white border border-neutral-200',
+          'p-6 md:p-8 min-h-[320px]',
+          'shadow-sm hover:shadow-xl transition-all duration-500',
+          'hover:border-highland-gold/40'
         )}
       >
-        {/* Background Image */}
-        {image && (
-          <Image
-            src={image}
-            alt={name}
-            fill
-            className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-            sizes="(max-width: 768px) 100vw, 50vw"
-          />
-        )}
+        {/* Logo */}
+        <div className="mb-6 h-16 flex items-center">
+          {logo ? (
+            <Image
+              src={logo}
+              alt={`${name} logo`}
+              width={180}
+              height={64}
+              className="h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+            />
+          ) : (
+            <div className="h-14 w-14 bg-highland-gold/10 rounded-lg flex items-center justify-center">
+              <span className="text-highland-gold font-semibold text-lg">
+                {name.charAt(0)}
+              </span>
+            </div>
+          )}
+        </div>
 
-        {/* Multi-layer gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-earth-anchor via-earth-anchor/60 to-earth-anchor/20 opacity-90 group-hover:opacity-95 transition-opacity duration-500" />
+        {/* Tagline badge */}
+        <div className="mb-3">
+          <span className="inline-block px-3 py-1 text-xs font-medium text-highland-gold bg-highland-gold/10 rounded-full">
+            {tagline}
+          </span>
+        </div>
 
-        {/* Accent border on hover */}
-        <div className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-highland-gold/40 transition-colors duration-500" />
+        {/* Name */}
+        <Heading
+          as="h2"
+          size="h4"
+          className="mb-3 text-earth-anchor group-hover:text-highland-gold transition-colors duration-300"
+        >
+          {name}
+        </Heading>
 
-        {/* Content */}
-        <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8">
-          {/* Tagline badge */}
-          <div className="mb-3">
-            <span className="inline-block px-3 py-1 text-xs font-medium text-highland-gold bg-highland-gold/10 backdrop-blur-sm rounded-full border border-highland-gold/20">
-              {tagline}
-            </span>
-          </div>
+        {/* Description */}
+        <Text size="sm" color="muted" className="line-clamp-3 mb-4">
+          {introduction}
+        </Text>
 
-          {/* Name */}
-          <Heading
-            as="h2"
-            size="h3"
-            color="white"
-            className="mb-2 group-hover:text-highland-gold transition-colors duration-300"
-          >
-            {name}
-          </Heading>
-
-          {/* Animated accent line */}
-          <div className="w-0 h-0.5 bg-highland-gold group-hover:w-16 transition-all duration-500 mb-3" />
-
-          {/* Description */}
-          <Text size="sm" className="text-white/70 line-clamp-2 mb-4 group-hover:text-white/90 transition-colors">
-            {introduction}
-          </Text>
+        {/* Location & Explore */}
+        <div className="mt-auto pt-4 border-t border-neutral-100 flex items-center justify-between">
+          {location && (
+            <div className="flex items-center gap-1.5 text-neutral-500">
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+              </svg>
+              <span className="text-xs">{location}</span>
+            </div>
+          )}
 
           {/* Explore indicator */}
           <div
             className={cn(
-              'flex items-center gap-2',
+              'flex items-center gap-1.5',
               'text-sm font-medium text-highland-gold',
-              'opacity-0 translate-y-4',
-              'group-hover:opacity-100 group-hover:translate-y-0',
-              'transition-all duration-300 delay-100'
+              'opacity-0 translate-x-2',
+              'group-hover:opacity-100 group-hover:translate-x-0',
+              'transition-all duration-300'
             )}
           >
-            Explore Industry
+            Explore
             <svg
               className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300"
               fill="none"

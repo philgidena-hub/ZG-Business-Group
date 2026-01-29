@@ -62,7 +62,7 @@ export default async function HomePage() {
         aboutImage={aboutImageUrl || undefined}
       />
 
-      {/* Industries - Grid of 10 business sectors */}
+      {/* Industries - Grid of 11 companies */}
       <Industries />
 
       {/* Parallax Stats Section - Company achievements */}
@@ -70,7 +70,7 @@ export default async function HomePage() {
         image="/parallax_one.jpg"
         headline="Building Ethiopia's Future"
         stats={[
-          { value: '10', suffix: '+', label: 'Industries' },
+          { value: '11', label: 'Companies' },
           { value: '5000', suffix: '+', label: 'Employees' },
           { value: '17', label: 'Years of Excellence' },
           { value: '100', suffix: 'M+', label: 'ETB Investment' },

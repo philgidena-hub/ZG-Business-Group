@@ -19,8 +19,7 @@ interface NavigationProps {
 // Navigation items
 const mainNavItems = [
   { label: 'About', href: '/about' },
-  { label: 'Industries', href: '/industries' },
-  { label: 'Companies', href: '/companies' },
+  { label: 'Our Companies', href: '/industries' },
   { label: 'Projects', href: '/projects' },
   { label: 'Impact', href: '/impact' },
   { label: 'News', href: '/news' },
