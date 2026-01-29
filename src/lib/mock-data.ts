@@ -20,13 +20,13 @@ export const groupProfile: Partial<GroupProfile> = {
   tagline: 'Building Ethiopia\'s Tomorrow',
   founding_year: 2008,
   headquarters: 'Addis Ababa, Ethiopia',
-  philosophy: `ZG Business Group was founded on a simple conviction: that disciplined, ethical enterprise can be a transformative force for communities and nations.
+  philosophy: `ZG Business Group is a diversified Ethiopian business group established in 2008, operating across multiple strategic sectors that contribute to economic growth, job creation, and social development. Since its inception, the Group has expanded steadily, building a strong reputation for reliability, ethical business practice, and long-term partnerships.
 
-From our origins in import and export, we have methodically expanded into sectors that serve fundamental human needs—food, shelter, employment, hospitality, and community development.
+ZG Business Group is actively engaged in trade, import and export, agro-industry, manufacturing, construction, hospitality (hotel services), and general trading, serving both domestic and international markets. In parallel with its commercial activities, the Group has a strong commitment to social services and community support, integrating social responsibility into its core business operations.
 
-We build not for quarters, but for generations.`,
-  vision: 'To be East Africa\'s most trusted diversified enterprise, creating sustainable value for communities and stakeholders.',
-  mission: 'We transform industries through operational excellence, ethical practices, and long-term commitment to the communities we serve.',
+ZG Business Group is built on integrity, professionalism, and trust, believing in strong partnerships and shared growth. We pursue excellence through innovation, resilience, and disciplined execution, while upholding full compliance and accountability. Beyond business, we are committed to sustainable development, social impact, and creating long-term value and legacy for our communities, partners, and future generations.`,
+  vision: 'To become a leading, trusted, and socially responsible business group in Ethiopia and the wider region by delivering sustainable economic value, promoting industrial development, and supporting community well-being.',
+  mission: 'To develop and manage diversified businesses that meet international standards. To facilitate trade and investment through efficient import and export operations. To create employment opportunities and build local capacity. To actively contribute to social services and community development initiatives. To foster long-term partnerships based on trust, transparency, and mutual growth.',
   employee_count: 5000,
   years_operating: 17,
   industries_count: 10,
