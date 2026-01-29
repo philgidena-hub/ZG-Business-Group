@@ -7,9 +7,10 @@ import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { Container, Heading, Text, AccentLine } from '@/components/ui';
 import { FadeIn, FadeInStagger, FadeInStaggerItem } from '@/components/motion';
+import { allProjects } from '@/lib/mock-data';
 
 interface ProjectItem {
-  id: number;
+  id: string | number;
   title: string;
   slug: string;
   project_type: string;
@@ -45,9 +46,13 @@ export default function ProjectsPage() {
       try {
         const res = await fetch(`${process.env.NEXT_PUBLIC_DIRECTUS_URL}/items/projects`);
         const data = await res.json();
-        setProjects(data.data || []);
+        const fetchedData = data.data || [];
+        // Use fetched data if available, otherwise fallback to mock data
+        setProjects(fetchedData.length > 0 ? fetchedData : allProjects as ProjectItem[]);
       } catch (error) {
         console.error('Error fetching projects:', error);
+        // Fallback to mock data on error
+        setProjects(allProjects as ProjectItem[]);
       } finally {
         setLoading(false);
       }

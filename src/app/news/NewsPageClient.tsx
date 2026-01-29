@@ -5,13 +5,14 @@ import Link from 'next/link';
 import { Container, Section, Heading, Text, AccentLine } from '@/components/ui';
 import { FadeIn, FadeInStagger, FadeInStaggerItem } from '@/components/motion';
 import { formatDate } from '@/lib/utils';
+import { newsArticles } from '@/lib/mock-data';
 
 interface NewsItem {
-  id: number;
+  id: string | number;
   title: string;
   slug: string;
   excerpt: string;
-  category: string;
+  category: string | { name: string; color?: string };
   publish_date: string;
   is_featured: boolean;
 }
@@ -25,9 +26,13 @@ export default function NewsPageClient() {
       try {
         const res = await fetch(`${process.env.NEXT_PUBLIC_DIRECTUS_URL}/items/news`);
         const data = await res.json();
-        setNews(data.data || []);
+        const fetchedData = data.data || [];
+        // Use fetched data if available, otherwise fallback to mock data
+        setNews(fetchedData.length > 0 ? fetchedData : newsArticles as NewsItem[]);
       } catch (error) {
         console.error('Error fetching news:', error);
+        // Fallback to mock data on error
+        setNews(newsArticles as NewsItem[]);
       } finally {
         setLoading(false);
       }
@@ -85,17 +90,22 @@ export default function NewsPageClient() {
           </div>
         ) : (
           <FadeInStagger stagger={0.1} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {news.map((article) => (
-              <FadeInStaggerItem key={article.id}>
-                <NewsListCard
-                  title={article.title}
-                  excerpt={article.excerpt}
-                  category={article.category || 'News'}
-                  date={article.publish_date ? formatDate(article.publish_date) : ''}
-                  slug={article.slug}
-                />
-              </FadeInStaggerItem>
-            ))}
+            {news.map((article) => {
+              const categoryName = typeof article.category === 'object' ? article.category.name : article.category;
+              const categoryColor = typeof article.category === 'object' ? article.category.color : undefined;
+              return (
+                <FadeInStaggerItem key={article.id}>
+                  <NewsListCard
+                    title={article.title}
+                    excerpt={article.excerpt}
+                    category={categoryName || 'News'}
+                    categoryColor={categoryColor}
+                    date={article.publish_date ? formatDate(article.publish_date) : ''}
+                    slug={article.slug}
+                  />
+                </FadeInStaggerItem>
+              );
+            })}
           </FadeInStagger>
         )}
 

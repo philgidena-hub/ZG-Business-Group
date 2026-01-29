@@ -8,6 +8,7 @@ import { cn } from '@/lib/utils';
 import { getIndustryImageUrl } from '@/lib/directus';
 import { Container, Section, Heading, Text, AccentLine } from '@/components/ui';
 import { FadeIn, FadeInStagger, FadeInStaggerItem } from '@/components/motion';
+import { businessSectors } from '@/lib/mock-data';
 import type { BusinessSector } from '@/types';
 
 export default function IndustriesPageClient() {
@@ -19,9 +20,13 @@ export default function IndustriesPageClient() {
       try {
         const res = await fetch(`${process.env.NEXT_PUBLIC_DIRECTUS_URL}/items/business_sectors`);
         const data = await res.json();
-        setSectors(data.data || []);
+        const fetchedSectors = data.data || [];
+        // Use fetched data if available, otherwise fallback to mock data
+        setSectors(fetchedSectors.length > 0 ? fetchedSectors : businessSectors as BusinessSector[]);
       } catch (error) {
         console.error('Error fetching sectors:', error);
+        // Fallback to mock data on error
+        setSectors(businessSectors as BusinessSector[]);
       } finally {
         setLoading(false);
       }
@@ -67,12 +72,12 @@ export default function IndustriesPageClient() {
               <FadeInStaggerItem key={sector.slug}>
                 <IndustryListCard
                   name={sector.name}
-                  tagline={sector.tagline || sector.description?.substring(0, 50) + '...'}
+                  tagline={sector.tagline || ''}
                   slug={sector.slug}
-                  introduction={sector.description || ''}
+                  introduction={sector.introduction || sector.description || ''}
                   heroImage={typeof sector.hero_image === 'string' ? sector.hero_image : sector.hero_image?.id}
-                  projectCount={0}
-                  subsidiaryCount={0}
+                  projectCount={sector.project_count || 0}
+                  subsidiaryCount={sector.subsidiary_count || 0}
                 />
               </FadeInStaggerItem>
             ))}
