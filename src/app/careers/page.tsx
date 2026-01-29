@@ -148,7 +148,7 @@ export default function CareersPage() {
 
             <FadeIn delay={0.2}>
               <Text size="lg" color="white" className="opacity-80 mb-8">
-                Join a team of passionate professionals working across 10 industries
+                Join a team of passionate professionals working across 11 industries
                 to shape Ethiopia's future. Discover opportunities that match your
                 ambitions and grow with us.
               </Text>
@@ -183,8 +183,8 @@ export default function CareersPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
               { value: '5,000+', label: 'Team Members' },
-              { value: '10', label: 'Industries' },
-              { value: '8', label: 'Companies' },
+              { value: '11', label: 'Companies' },
+              { value: '11', label: 'Industries' },
               { value: '15+', label: 'Years Growing' },
             ].map((stat, index) => (
               <FadeIn key={stat.label} delay={index * 0.1}>
@@ -404,7 +404,7 @@ export default function CareersPage() {
                 Opportunities Across Our Portfolio
               </Heading>
               <Text size="lg" color="muted">
-                With 8 companies across 10 industries, there's a place for every talent.
+                With 11 companies across diverse industries, there's a place for every talent.
               </Text>
             </div>
           </FadeIn>

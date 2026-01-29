@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     template: '%s | ZG Business Group',
   },
   description:
-    'Since 2008, ZG Business Group has cultivated a diversified enterprise across 10 industries, creating lasting value for communities and partners across East Africa.',
+    'Since 2008, ZG Business Group has cultivated a diversified enterprise across 11 industries, creating lasting value for communities and partners across East Africa.',
   keywords: [
     'ZG Business Group',
     'Ethiopian business',
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     siteName: 'ZG Business Group',
     title: 'ZG Business Group | Building Ethiopia\'s Tomorrow',
     description:
-      'Since 2008, ZG Business Group has cultivated a diversified enterprise across 10 industries, creating lasting value for communities and partners across East Africa.',
+      'Since 2008, ZG Business Group has cultivated a diversified enterprise across 11 industries, creating lasting value for communities and partners across East Africa.',
     images: [
       {
         url: '/og-image.jpg',
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'ZG Business Group | Building Ethiopia\'s Tomorrow',
     description:
-      'Since 2008, ZG Business Group has cultivated a diversified enterprise across 10 industries.',
+      'Since 2008, ZG Business Group has cultivated a diversified enterprise across 11 industries.',
     images: ['/og-image.jpg'],
     creator: '@zggroup',
   },

@@ -64,7 +64,7 @@ export interface ZoomParallaxProps {
 
 export function ZoomParallax({
   headline = 'Building Tomorrow',
-  subheadline = 'Across 10 Industries',
+  subheadline = 'Across 11 industries',
   className,
 }: ZoomParallaxProps) {
   const [isMobile, setIsMobile] = useState(false);

@@ -172,7 +172,7 @@ export function Footer() {
 
             {/* Tagline */}
             <Text color="white" className="opacity-60 mb-6 max-w-xs text-sm leading-relaxed">
-              Building Ethiopia's tomorrow through diversified, ethical enterprise across 10 industries since 2008.
+              Building Ethiopia's tomorrow through diversified, ethical enterprise across 11 industries since 2008.
             </Text>
 
             {/* Contact Info */}

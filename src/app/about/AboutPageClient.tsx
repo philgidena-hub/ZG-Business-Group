@@ -138,7 +138,7 @@ export default function AboutPageClient({
 
                 <FadeIn delay={0.3}>
                   <Text size="lg" weight="semibold" className="text-highland-gold">
-                    Today, ZG Business Group operates across 10 industries with over 5,000 employees, contributing to Ethiopia&apos;s economic growth while maintaining our founding commitment to quality and integrity.
+                    Today, ZG Business Group operates across 11 industries with over 5,000 employees, contributing to Ethiopia&apos;s economic growth while maintaining our founding commitment to quality and integrity.
                   </Text>
                 </FadeIn>
               </>

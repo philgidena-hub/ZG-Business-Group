@@ -138,7 +138,7 @@ function FloatingParticles() {
 
 export function Hero({
   headline = "Shaping Africa's Future",
-  description = "Since 2008, ZG Business Group has cultivated a diversified enterprise across 10 industries, creating lasting value for communities and partners across East Africa.",
+  description = "Since 2008, ZG Business Group has cultivated a diversified enterprise across 11 industries, creating lasting value for communities and partners across East Africa.",
   backgroundImage = 'https://images.unsplash.com/photo-1611348524140-53c9a25263d6?w=1920&q=80',
   backgroundVideo,
   foundingYear = 2008,
