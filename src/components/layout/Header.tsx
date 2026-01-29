@@ -233,7 +233,7 @@ function Logo({ isScrolled, isMenuOpen, transparent }: LogoProps) {
         alt="ZG Business Group"
         width={400}
         height={100}
-        className="h-16 sm:h-20 lg:h-24 w-auto transition-all duration-300"
+        className="h-10 sm:h-12 lg:h-14 w-auto transition-all duration-300"
         priority
       />
     </motion.div>
