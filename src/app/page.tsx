@@ -33,7 +33,7 @@ export default async function HomePage() {
   // Process about image from CMS or fallback
   const aboutImageUrl = settings?.about_image
     ? getAssetUrl(settings.about_image, { width: 1200, quality: 80, format: 'webp' })
-    : 'https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=1200&q=80';
+    : '/parallax_one.jpg';
 
   return (
     <>

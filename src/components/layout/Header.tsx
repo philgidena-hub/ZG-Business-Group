@@ -22,6 +22,7 @@ export interface HeaderProps {
 
 // Navigation items
 const navItems = [
+  { label: 'Home', href: '/' },
   { label: 'About', href: '/about' },
   { label: 'Our Companies', href: '/industries' },
   { label: 'Projects', href: '/projects' },
