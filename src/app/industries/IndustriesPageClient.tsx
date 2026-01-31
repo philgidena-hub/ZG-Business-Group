@@ -85,85 +85,89 @@ function IndustryListCard({
       <Link
         href={`/industries/${slug}`}
         className={cn(
-          'group relative block overflow-hidden rounded-2xl',
-          'bg-paper-white border border-neutral-200',
-          'p-6 md:p-8 min-h-[320px]',
-          'shadow-sm hover:shadow-xl transition-all duration-500',
-          'hover:border-highland-gold/40'
+          'group relative flex flex-col overflow-hidden rounded-2xl',
+          'bg-earth-anchor',
+          'min-h-[320px]',
+          'shadow-lg hover:shadow-2xl transition-all duration-500'
         )}
       >
-        {/* Logo */}
-        <div className="mb-6 h-16 flex items-center">
-          {logo ? (
+        {/* Logo Header - Dark background with full ZG logo */}
+        <div className="bg-[#1a2332] px-6 py-8 border-b border-white/10">
+          <div className="flex items-center gap-4">
+            {/* ZG Business Group Logo */}
             <Image
-              src={logo}
-              alt={`${name} logo`}
-              width={180}
-              height={64}
-              className="h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+              src="/gallery/ZG BUSINESS GROUP REVERSE COLOR.svg"
+              alt="ZG Business Group"
+              width={120}
+              height={40}
+              className="h-10 w-auto"
             />
-          ) : (
-            <div className="h-14 w-14 bg-highland-gold/10 rounded-lg flex items-center justify-center">
-              <span className="text-highland-gold font-semibold text-lg">
-                {name.charAt(0)}
-              </span>
+            <div className="h-8 w-px bg-white/20" />
+            {/* Company Name */}
+            <div>
+              <Text size="sm" className="font-semibold text-white leading-tight">
+                {name}
+              </Text>
             </div>
-          )}
+          </div>
         </div>
 
-        {/* Tagline badge */}
-        <div className="mb-3">
-          <span className="inline-block px-3 py-1 text-xs font-medium text-highland-gold bg-highland-gold/10 rounded-full">
-            {tagline}
-          </span>
-        </div>
+        {/* Content */}
+        <div className="flex-1 p-6 flex flex-col">
+          {/* Tagline badge */}
+          <div className="mb-4">
+            <span className="inline-block px-3 py-1 text-xs font-medium text-highland-gold bg-highland-gold/20 rounded-full">
+              {tagline}
+            </span>
+          </div>
 
-        {/* Name */}
-        <Heading
-          as="h2"
-          size="h4"
-          className="mb-3 text-earth-anchor group-hover:text-highland-gold transition-colors duration-300"
-        >
-          {name}
-        </Heading>
-
-        {/* Description */}
-        <Text size="sm" color="muted" className="line-clamp-3 mb-4">
-          {introduction}
-        </Text>
-
-        {/* Location & Explore */}
-        <div className="mt-auto pt-4 border-t border-neutral-100 flex items-center justify-between">
-          {location && (
-            <div className="flex items-center gap-1.5 text-neutral-500">
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-                <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-              </svg>
-              <span className="text-xs">{location}</span>
-            </div>
-          )}
-
-          {/* Explore indicator */}
-          <div
-            className={cn(
-              'flex items-center gap-1.5',
-              'text-sm font-medium text-highland-gold',
-              'opacity-0 translate-x-2',
-              'group-hover:opacity-100 group-hover:translate-x-0',
-              'transition-all duration-300'
-            )}
+          {/* Company Title (for better SEO) */}
+          <Heading
+            as="h2"
+            size="h5"
+            className="mb-3 text-white group-hover:text-highland-gold transition-colors duration-300"
           >
-            Explore
-            <svg
-              className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
+            {name}
+          </Heading>
+
+          {/* Description */}
+          <Text size="sm" className="text-white/70 line-clamp-3 mb-4 flex-1">
+            {introduction}
+          </Text>
+
+          {/* Location & Explore */}
+          <div className="mt-auto pt-4 border-t border-white/10 flex items-center justify-between">
+            {location && (
+              <div className="flex items-center gap-1.5 text-white/60">
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                </svg>
+                <span className="text-xs">{location}</span>
+              </div>
+            )}
+
+            {/* Explore indicator */}
+            <div
+              className={cn(
+                'flex items-center gap-1.5',
+                'text-sm font-medium text-highland-gold',
+                'opacity-0 translate-x-2',
+                'group-hover:opacity-100 group-hover:translate-x-0',
+                'transition-all duration-300'
+              )}
             >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
+              Explore
+              <svg
+                className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </div>
           </div>
         </div>
       </Link>
