@@ -48,6 +48,7 @@ export interface GroupProfile extends BaseEntity, SEOFields {
   vision: string;
   mission: string;
   values: CoreValue[];
+  values_text?: string;
 
   // Statistics
   employee_count: number;

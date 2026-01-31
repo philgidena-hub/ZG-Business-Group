@@ -22,6 +22,8 @@ export interface IntroductionProps {
   headline?: string;
   /** Philosophy text (paragraphs separated by double newlines) */
   philosophy?: string;
+  /** Values statement */
+  values?: string;
   /** Vision statement */
   vision?: string;
   /** Mission statement */
@@ -34,12 +36,14 @@ export function Introduction({
   id = 'about',
   headline,
   philosophy,
+  values,
   vision,
   mission,
   aboutImage,
 }: IntroductionProps) {
   // Use CMS content or fallback to mock data
   const displayPhilosophy = philosophy || groupProfile.philosophy;
+  const displayValues = values || groupProfile.values_text;
   const displayVision = vision || groupProfile.vision;
   const displayMission = mission || groupProfile.mission;
   const displayImage = aboutImage || defaultAboutImage;
@@ -127,66 +131,69 @@ export function Introduction({
             <div className="space-y-6 mb-12">
               {paragraphs.map((paragraph, index) => (
                 <FadeIn key={index} delay={0.2 + index * 0.1}>
-                  {index === paragraphs.length - 1 ? (
-                    <Text
-                      size="lg"
-                      weight="medium"
-                      className="text-highland-gold border-l-2 border-highland-gold pl-6"
-                    >
-                      {paragraph}
-                    </Text>
-                  ) : (
-                    <Text size="lg" className="text-neutral-600 leading-relaxed">
-                      {paragraph}
-                    </Text>
-                  )}
+                  <Text size="lg" className="text-neutral-600 leading-relaxed">
+                    {paragraph}
+                  </Text>
                 </FadeIn>
               ))}
             </div>
 
-            {/* Vision & Mission - Card style */}
-            <FadeIn delay={0.5}>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* Vision Card */}
-                <motion.div
-                  className="group p-6 bg-earth-anchor rounded-xl hover:shadow-xl transition-all duration-300"
-                  whileHover={{ y: -4 }}
-                >
+            {/* Values - Prominent display */}
+            {displayValues && (
+              <FadeIn delay={0.4}>
+                <div className="mb-12 p-8 bg-gradient-to-br from-highland-gold/5 to-highland-gold/10 border-l-4 border-highland-gold rounded-r-xl">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 rounded-full bg-highland-gold/20 flex items-center justify-center">
-                      <svg className="w-5 h-5 text-highland-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <svg className="w-6 h-6 text-highland-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <Text size="caption" className="uppercase tracking-wider font-semibold text-highland-gold">
+                      Our Values
+                    </Text>
+                  </div>
+                  <Text size="lg" weight="medium" className="text-earth-anchor leading-relaxed">
+                    {displayValues}
+                  </Text>
+                </div>
+              </FadeIn>
+            )}
+
+            {/* Vision & Mission - Simplified cards */}
+            <FadeIn delay={0.5}>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {/* Vision */}
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-lg bg-highland-gold/10 flex items-center justify-center">
+                      <svg className="w-5 h-5 text-highland-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
                         <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                       </svg>
                     </div>
-                    <Text size="caption" className="uppercase tracking-wider font-medium text-highland-gold">
+                    <Text size="sm" className="uppercase tracking-wider font-semibold text-earth-anchor">
                       Our Vision
                     </Text>
                   </div>
-                  <Text size="base" className="text-paper-white/90">
+                  <Text size="base" className="text-neutral-600 leading-relaxed pl-13">
                     {displayVision}
                   </Text>
-                </motion.div>
+                </div>
 
-                {/* Mission Card */}
-                <motion.div
-                  className="group p-6 bg-earth-anchor rounded-xl hover:shadow-xl transition-all duration-300"
-                  whileHover={{ y: -4 }}
-                >
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 rounded-full bg-highland-gold/20 flex items-center justify-center">
-                      <svg className="w-5 h-5 text-highland-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                {/* Mission */}
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-lg bg-highland-gold/10 flex items-center justify-center">
+                      <svg className="w-5 h-5 text-highland-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
                       </svg>
                     </div>
-                    <Text size="caption" className="uppercase tracking-wider font-medium text-highland-gold">
+                    <Text size="sm" className="uppercase tracking-wider font-semibold text-earth-anchor">
                       Our Mission
                     </Text>
                   </div>
-                  <Text size="base" className="text-paper-white/90">
+                  <Text size="base" className="text-neutral-600 leading-relaxed pl-13">
                     {displayMission}
                   </Text>
-                </motion.div>
+                </div>
               </div>
             </FadeIn>
           </div>
