@@ -13,7 +13,7 @@ import { groupProfile } from '@/lib/mock-data';
 // =====================================================
 
 // Default image for about section
-const defaultAboutImage = 'https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=1200&q=80';
+const defaultAboutImage = '/parallax_one.jpg';
 
 export interface IntroductionProps {
   /** Section ID for anchor links */
