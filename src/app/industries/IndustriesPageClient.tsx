@@ -124,7 +124,7 @@ function IndustryListCard({
           {/* Company Title (for better SEO) */}
           <Heading
             as="h2"
-            size="h5"
+            size="h4"
             className="mb-3 text-white group-hover:text-highland-gold transition-colors duration-300"
           >
             {name}
