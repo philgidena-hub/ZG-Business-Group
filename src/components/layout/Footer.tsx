@@ -43,9 +43,9 @@ const footerNav = {
 };
 
 const socialLinks = [
-  { label: 'LinkedIn', href: 'https://linkedin.com/company/zggroup', icon: LinkedInIcon },
-  { label: 'Facebook', href: 'https://facebook.com/zggroup', icon: FacebookIcon },
-  { label: 'Instagram', href: 'https://instagram.com/zggroup', icon: InstagramIcon },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/zg-business-group-340ba13b3/', icon: LinkedInIcon },
+  { label: 'Facebook', href: 'https://web.facebook.com/profile.php?id=61587613315693', icon: FacebookIcon },
+  { label: 'Instagram', href: 'https://www.instagram.com/zgbusinessgroup?igsh=NnAyMnMycXg4cXo0', icon: InstagramIcon },
 ];
 
 const legalLinks = [
@@ -183,7 +183,7 @@ export function Footer() {
                 className="flex items-start gap-3 text-sm text-paper-white/60 hover:text-paper-white transition-colors group"
               >
                 <MapPinIcon className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                <span>Alemnesh plaza 8th Floor, No. 811, Bole, Addis Ababa, Ethiopia</span>
+                <span>Alemnesh plaza 8th Floor, No. 812, Bole, Addis Ababa, Ethiopia</span>
               </a>
               <a
                 href="tel:+251111234567"
@@ -257,6 +257,18 @@ export function Footer() {
               <span>© {currentYear} ZG Business Group.</span>
               <span className="hidden md:inline">|</span>
               <span>All rights reserved.</span>
+            </div>
+
+            {/* Made by Wari */}
+            <div className="flex items-center gap-2">
+              <span className="text-xs text-paper-white/30">Made by</span>
+              <Image
+                src="/Wari Comunnication Logo Finall 2-01.png"
+                alt="Wari Communications"
+                width={80}
+                height={24}
+                className="h-5 w-auto opacity-40 hover:opacity-70 transition-opacity duration-300"
+              />
             </div>
 
             {/* Legal Links */}

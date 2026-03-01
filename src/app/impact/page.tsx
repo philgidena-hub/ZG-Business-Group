@@ -22,32 +22,32 @@ const impactStats = [
 
 const impactAreas = [
   {
-    title: 'Economic Empowerment',
-    description: 'Creating sustainable livelihoods through employment, training, and entrepreneurship support across all our operations.',
-    icon: '💼',
-    stats: { value: '5,000+', label: 'Direct employees' },
-    image: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800&q=80',
+    title: 'Education & Human Capital Development',
+    description: 'This category focuses on investing in people through education and skills development. Bond proceeds allocated here support the construction and rehabilitation of schools, provision of learning materials, teacher support programs, scholarships for disadvantaged students, and vocational training centers. The aim is to build a skilled workforce, reduce unemployment, and empower youth and women with practical competencies that contribute to national productivity.',
+    icon: '🎓',
+    stats: { value: '5,000+', label: 'People trained' },
+    image: '/images/impact/impact-skills.jpg',
   },
   {
-    title: 'Community Development',
-    description: 'Investing in infrastructure, healthcare, and education to strengthen the communities where we operate.',
-    icon: '🏘️',
+    title: 'Agriculture, Food Security & Rural Livelihoods',
+    description: 'Funds under this category are directed toward improving agricultural productivity and rural income generation. This includes support for smallholder farmers, irrigation systems, improved seeds, agro-processing facilities, storage infrastructure, and market access programs. The goal is to enhance food security, increase farmer incomes, promote value-chain development, and strengthen rural economies while ensuring sustainable land and water use.',
+    icon: '🌾',
+    stats: { value: '10,000+', label: 'Farmers supported' },
+    image: '/images/impact/impact-environment.jpg',
+  },
+  {
+    title: 'Health, Nutrition & Community Well-Being',
+    description: 'This category addresses basic human needs and quality of life. Bond resources are used to support primary healthcare facilities, maternal and child health programs, nutrition initiatives, clean water access, sanitation projects, and community clinics. Special emphasis is placed on reducing malnutrition, improving preventive healthcare, and expanding access to essential services in underserved communities.',
+    icon: '🏥',
     stats: { value: '25+', label: 'Community projects' },
-    image: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&q=80',
+    image: '/images/impact/impact-community.jpg',
   },
   {
-    title: 'Environmental Stewardship',
-    description: 'Implementing sustainable practices across our operations to protect Ethiopia\'s natural heritage for future generations.',
-    icon: '🌱',
-    stats: { value: '10,000+', label: 'Trees planted' },
-    image: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800&q=80',
-  },
-  {
-    title: 'Skills & Training',
-    description: 'Developing local talent through vocational training, internships, and professional development programs.',
-    icon: '📚',
-    stats: { value: '2,500+', label: 'People trained' },
-    image: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&q=80',
+    title: 'Enterprise Development, Infrastructure & Job Creation',
+    description: 'This pillar supports inclusive economic growth through enterprise development and infrastructure investment. Allocations cover SME financing, youth entrepreneurship programs, industrial parks, renewable energy, affordable housing, logistics, and digital infrastructure. The objective is to stimulate private sector growth, attract investment, create sustainable jobs, and strengthen national production capacity.',
+    icon: '🏗️',
+    stats: { value: '2,500+', label: 'Jobs created' },
+    image: '/images/impact/impact-economic.jpg',
   },
 ];
 
@@ -62,16 +62,10 @@ const sdgGoals = [
 
 const testimonials = [
   {
-    quote: "ZG Group's training program transformed my life. I went from unemployment to becoming a skilled technician with a stable income.",
-    author: "Abebe Tadesse",
-    role: "Former trainee, now Site Supervisor",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80",
-  },
-  {
-    quote: "The community center built by ZG Group has become the heart of our neighborhood. Our children now have a safe place to learn and play.",
-    author: "Tigist Haile",
-    role: "Community Leader, Hawassa",
-    image: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=200&q=80",
+    quote: "I had the privilege of visiting Tigray and touring several development and business sites led by ZG Business Group. The experience was both inspiring and deeply moving. I personally visited their agricultural projects, farm operations, and community initiatives, including schools being constructed and donated to local people. What impressed me most was the genuine integration of enterprise with social responsibility. ZG Business Group is not only building businesses — they are building futures. Their investments in agriculture, education, and community development demonstrate a strong commitment to inclusive growth and sustainable impact. I was truly excited by the scale of their vision and the sincerity of their service to the people. I commend the leadership and team for their dedication to empowering communities while driving economic progress. This is development in action, and I look forward to strengthening our partnership going forward.",
+    author: "Ambassador Dr. Hillary Emoh",
+    role: "Official Visit to Tigray",
+    image: "/testimonials/Ambassador_Dr_Hillary_Emoh.png",
   },
 ];
 
@@ -91,7 +85,7 @@ export default function ImpactPage() {
       <section ref={heroRef} className="relative h-[80vh] min-h-[600px] overflow-hidden">
         <motion.div className="absolute inset-0" style={{ y: imageY }}>
           <Image
-            src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=1920&q=80"
+            src="/images/impact/impact-community.jpg"
             alt="Community Impact"
             fill
             priority
@@ -163,11 +157,13 @@ export default function ImpactPage() {
                 Areas of Focus
               </Text>
               <Heading as="h2" size="h1" className="mb-6">
-                How We Create Impact
+                ZG Business Group – Bond Business Distribution into Four Social Contribution Categories
               </Heading>
               <Text size="lg" color="muted">
-                Our impact strategy focuses on four key areas that drive sustainable
-                development and create lasting change.
+                This document outlines how ZG Business Group's Bond Business Program can be strategically
+                distributed into four key social contribution categories. The objective is to ensure that
+                financial growth directly supports sustainable community development, economic empowerment,
+                and long-term national impact.
               </Text>
             </div>
           </FadeIn>
@@ -232,87 +228,76 @@ export default function ImpactPage() {
         </Container>
       </section>
 
-      {/* SDG Alignment */}
-      <section className="py-20 md:py-28 bg-neutral-50">
+      {/* Conclusion */}
+      <section className="py-16 md:py-20 bg-neutral-50">
         <Container>
           <FadeIn>
-            <div className="max-w-3xl mx-auto text-center mb-12">
+            <div className="max-w-3xl mx-auto text-center">
               <Text size="caption" color="gold" className="uppercase tracking-wider mb-4">
-                Global Goals
+                Conclusion
               </Text>
-              <Heading as="h2" size="h2" className="mb-6">
-                UN Sustainable Development Goals
-              </Heading>
-              <Text size="lg" color="muted">
-                Our operations align with the United Nations Sustainable Development Goals,
-                contributing to global efforts for a better future.
+              <Text size="lg" color="muted" className="leading-relaxed">
+                By structuring the ZG Business Group Bond Business Program across these four categories,
+                financial returns are directly linked to measurable social impact. This integrated approach
+                ensures that investments contribute not only to commercial success but also to education,
+                food security, health, and job creation — laying the foundation for resilient communities
+                and long-term economic transformation.
               </Text>
             </div>
           </FadeIn>
-
-          <FadeInStagger stagger={0.1} className="flex flex-wrap justify-center gap-4">
-            {sdgGoals.map((goal) => (
-              <FadeInStaggerItem key={goal.number}>
-                <motion.div
-                  className={cn(
-                    'w-24 h-24 rounded-xl flex flex-col items-center justify-center text-white',
-                    goal.color
-                  )}
-                  whileHover={{ scale: 1.1, y: -4 }}
-                  transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-                >
-                  <span className="text-3xl font-bold">{goal.number}</span>
-                  <span className="text-xs text-center px-2 mt-1 leading-tight">{goal.title}</span>
-                </motion.div>
-              </FadeInStaggerItem>
-            ))}
-          </FadeInStagger>
         </Container>
       </section>
 
-      {/* Testimonials */}
+      {/* Testimonial */}
       <section className="py-20 md:py-28 bg-earth-anchor">
         <Container>
           <FadeIn>
             <div className="text-center mb-12">
               <Text size="caption" color="gold" className="uppercase tracking-wider mb-4">
-                Stories of Change
+                Voices of Impact
               </Text>
               <Heading as="h2" size="h2" color="white">
-                Voices from Our Community
+                What Our Partners Say
               </Heading>
             </div>
           </FadeIn>
 
-          <FadeInStagger stagger={0.1} className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="max-w-4xl mx-auto">
             {testimonials.map((testimonial, index) => (
-              <FadeInStaggerItem key={index}>
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
-                  <svg className="w-10 h-10 text-highland-gold/50 mb-6" fill="currentColor" viewBox="0 0 24 24">
+              <FadeIn key={index} delay={0.1}>
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 md:p-12">
+                  {/* Context label */}
+                  <Text size="sm" className="text-highland-gold font-semibold uppercase tracking-wider mb-6">
+                    Ambassador Dr. Hillary Emoh Visits Tigray — A Testament to Impact, Partnership, and Community Development
+                  </Text>
+
+                  <svg className="w-10 h-10 text-highland-gold/40 mb-6" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                   </svg>
-                  <Text size="lg" color="white" className="mb-6 leading-relaxed">
+
+                  <Text size="lg" color="white" className="mb-8 leading-relaxed opacity-90">
                     "{testimonial.quote}"
                   </Text>
+
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full overflow-hidden relative">
+                    <div className="w-16 h-16 rounded-full overflow-hidden relative flex-shrink-0 border-2 border-highland-gold/30">
                       <Image
                         src={testimonial.image}
                         alt={testimonial.author}
                         fill
                         className="object-cover"
-                        sizes="48px"
+                        sizes="64px"
                       />
                     </div>
                     <div>
-                      <span className="block text-white font-medium">{testimonial.author}</span>
-                      <span className="text-white/60 text-sm">{testimonial.role}</span>
+                      <span className="block text-white font-semibold text-lg">{testimonial.author}</span>
+                      <span className="text-highland-gold/80 text-sm">{testimonial.role}</span>
                     </div>
                   </div>
                 </div>
-              </FadeInStaggerItem>
+              </FadeIn>
             ))}
-          </FadeInStagger>
+          </div>
         </Container>
       </section>
 
