@@ -44,7 +44,6 @@ const footerNav = {
 
 const socialLinks = [
   { label: 'LinkedIn', href: 'https://linkedin.com/company/zggroup', icon: LinkedInIcon },
-  { label: 'Twitter', href: 'https://twitter.com/zggroup', icon: TwitterIcon },
   { label: 'Facebook', href: 'https://facebook.com/zggroup', icon: FacebookIcon },
   { label: 'Instagram', href: 'https://instagram.com/zggroup', icon: InstagramIcon },
 ];
@@ -166,7 +165,7 @@ export function Footer() {
                 alt="ZG Business Group"
                 width={360}
                 height={100}
-                className="h-28 w-auto brightness-0 invert transition-opacity duration-300 group-hover:opacity-80"
+                className="h-40 w-auto brightness-0 invert transition-opacity duration-300 group-hover:opacity-80"
               />
             </Link>
 
@@ -184,14 +183,14 @@ export function Footer() {
                 className="flex items-start gap-3 text-sm text-paper-white/60 hover:text-paper-white transition-colors group"
               >
                 <MapPinIcon className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                <span>Bole, Addis Ababa, Ethiopia</span>
+                <span>Alemnesh plaza 8th Floor, No. 811, Bole, Addis Ababa, Ethiopia</span>
               </a>
               <a
                 href="tel:+251111234567"
                 className="flex items-center gap-3 text-sm text-paper-white/60 hover:text-paper-white transition-colors"
               >
                 <PhoneIcon className="w-4 h-4 flex-shrink-0" />
-                <span>+251 11 123 4567</span>
+                <span>+251 96 055 5551</span>
               </a>
               <a
                 href="mailto:info@zggroup.com"

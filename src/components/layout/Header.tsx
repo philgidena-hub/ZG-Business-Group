@@ -144,17 +144,6 @@ export function Header({ transparent = false }: HeaderProps) {
 
             {/* Right side controls */}
             <div className="flex items-center gap-3">
-              {/* Language Toggle - Desktop */}
-              <LanguageToggle
-                className={cn(
-                  'hidden md:flex transition-colors duration-fast',
-                  isMenuOpen
-                    ? 'text-paper-white'
-                    : isDarkText
-                      ? 'text-earth-anchor'
-                      : 'text-paper-white'
-                )}
-              />
 
               {/* Contact Button - Desktop */}
               <Link
@@ -231,7 +220,7 @@ function Logo({ isScrolled, isMenuOpen, transparent }: LogoProps) {
         height={100}
         className={cn(
           'w-auto transition-all duration-300',
-          isScrolled ? 'h-10 sm:h-11 lg:h-12' : 'h-8 sm:h-9 lg:h-10'
+          isScrolled ? 'h-14 sm:h-16 lg:h-[72px]' : 'h-12 sm:h-14 lg:h-16'
         )}
         priority
       />

@@ -91,8 +91,8 @@ function IndustryListCard({
           'shadow-lg hover:shadow-2xl transition-all duration-500'
         )}
       >
-        {/* Logo Header - Dark background with full ZG logo */}
-        <div className="bg-[#1a2332] px-6 py-8 border-b border-white/10">
+        {/* Logo Header */}
+        <div className="bg-earth-anchor px-6 py-8 border-b border-white/10">
           <div className="flex items-center gap-4">
             {/* ZG Business Group Logo */}
             <Image

@@ -2,12 +2,10 @@ import {
   Hero,
   Introduction,
   Industries,
-  FeaturedProject,
   ImpactQuote,
   CommunityImpact,
   Testimonials,
   Gallery,
-  LatestNews,
   Partners,
   ParallaxStatsSection,
   ParallaxDivider,
@@ -77,9 +75,6 @@ export default async function HomePage() {
         ]}
       />
 
-      {/* Featured Project - Flagship project showcase */}
-      <FeaturedProject />
-
       {/* Impact Quote - Founder quote with dark background */}
       <ImpactQuote
         quote={settings?.impact_quote}
@@ -101,9 +96,6 @@ export default async function HomePage() {
         image="/parallax_two.jpg"
         alt="ZG Business Group Headquarters"
       />
-
-      {/* Latest News - Recent articles */}
-      <LatestNews />
 
       {/* Partners - Logo cloud */}
       <Partners />

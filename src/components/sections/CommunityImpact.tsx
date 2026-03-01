@@ -63,30 +63,48 @@ export function CommunityImpact() {
       <Container>
         {/* Section Header */}
         <div className="mb-12 lg:mb-16">
-          <FadeIn>
-            <Text
-              size="caption"
-              color="gold"
-              className="uppercase tracking-wider mb-4"
-            >
-              Community Impact
-            </Text>
-            <AccentLine size="md" className="mb-6" />
-          </FadeIn>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Left: Text */}
+            <div>
+              <FadeIn>
+                <Text
+                  size="caption"
+                  color="gold"
+                  className="uppercase tracking-wider mb-4"
+                >
+                  Community Impact
+                </Text>
+                <AccentLine size="md" className="mb-6" />
+              </FadeIn>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <FadeIn delay={0.1}>
-              <Heading as="h2" size="h2">
-                Beyond Business
-              </Heading>
-            </FadeIn>
+              <FadeIn delay={0.1}>
+                <Heading as="h2" size="h2" className="mb-6">
+                  Beyond Business
+                </Heading>
+              </FadeIn>
 
-            <FadeIn delay={0.2}>
-              <Text size="lg" color="muted">
-                Our commitment extends beyond commercial success. We invest in the
-                communities where we operate, focusing on education, healthcare,
-                agricultural development, and women's empowerment.
-              </Text>
+              <FadeIn delay={0.2}>
+                <Text size="lg" color="muted">
+                  Through hands-on environmental initiatives, we support reforestation, climate
+                  resilience, and long-term economic growth. By investing in nature today, we
+                  help build a healthier environment and a stronger future for generations to
+                  come.
+                </Text>
+              </FadeIn>
+            </div>
+
+            {/* Right: Featured Image */}
+            <FadeIn delay={0.3}>
+              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
+                <Image
+                  src="/images/optimized/parallax-tree-planting.jpg"
+                  alt="ZG Business Group community tree planting initiative"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-earth-anchor/30 to-transparent" />
+              </div>
             </FadeIn>
           </div>
         </div>

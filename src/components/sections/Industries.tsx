@@ -121,10 +121,10 @@ function CompanyCard({
         href={`/industries/${slug}`}
         className={cn(
           'group relative block overflow-hidden rounded-2xl',
-          'bg-paper-white border border-neutral-200',
+          'bg-earth-anchor border border-white/10',
           'p-6 md:p-8 min-h-[280px]',
           'shadow-sm hover:shadow-xl transition-all duration-500',
-          'hover:border-highland-gold/40'
+          'hover:border-highland-gold/50'
         )}
       >
         {/* Logo */}
@@ -138,7 +138,7 @@ function CompanyCard({
               className="h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
             />
           ) : (
-            <div className="h-12 w-12 bg-highland-gold/10 rounded-lg flex items-center justify-center">
+            <div className="h-12 w-12 bg-highland-gold/20 rounded-lg flex items-center justify-center">
               <span className="text-highland-gold font-semibold text-lg">
                 {name.charAt(0)}
               </span>
@@ -148,25 +148,25 @@ function CompanyCard({
 
         {/* Tagline badge */}
         <div className="mb-3">
-          <span className="inline-block px-3 py-1 text-xs font-medium text-highland-gold bg-highland-gold/10 rounded-full">
+          <span className="inline-block px-3 py-1 text-xs font-medium text-highland-gold bg-highland-gold/15 rounded-full">
             {tagline}
           </span>
         </div>
 
         {/* Name */}
-        <h3 className="text-lg font-semibold text-earth-anchor mb-2 group-hover:text-highland-gold transition-colors duration-300">
+        <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-highland-gold transition-colors duration-300">
           {name}
         </h3>
 
         {/* Description */}
-        <Text size="sm" color="muted" className="line-clamp-2 mb-4">
+        <p className="text-sm text-white/60 line-clamp-2 mb-4">
           {introduction}
-        </Text>
+        </p>
 
         {/* Location & Explore */}
-        <div className="mt-auto pt-4 border-t border-neutral-100 flex items-center justify-between">
+        <div className="mt-auto pt-4 border-t border-white/10 flex items-center justify-between">
           {location && (
-            <div className="flex items-center gap-1.5 text-neutral-500">
+            <div className="flex items-center gap-1.5 text-white/40">
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
                 <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />

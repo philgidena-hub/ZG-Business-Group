@@ -57,8 +57,6 @@ export function Introduction({
       className="py-24 md:py-32 lg:py-40 bg-paper-white relative overflow-hidden"
       aria-label="About ZG Business Group"
     >
-      {/* Background decorative elements */}
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-neutral-50 to-transparent pointer-events-none" />
 
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 items-start">
