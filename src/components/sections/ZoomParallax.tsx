@@ -17,22 +17,22 @@ import { motion, useScroll, useTransform, MotionValue } from 'framer-motion';
 // Optimized WebP images (~98% smaller than originals)
 const pictures = [
   {
-    src: '/images/optimized/parallax-3.webp',
+    src: '/images/optimized/parallax-building-render.png',
     scale: [1, 4] as [number, number],
     // Center image - no offset
   },
   {
-    src: '/images/optimized/farming.webp',
+    src: '/images/optimized/parallax-tree-planting.jpg',
     scale: [1, 5] as [number, number],
     style: { top: '-30vh', left: '5vw', width: '35vw', height: '30vh' },
   },
   {
-    src: '/images/optimized/general-trading.webp',
+    src: '/images/optimized/parallax-biws-award.jpg',
     scale: [1, 6] as [number, number],
     style: { top: '-10vh', left: '-25vw', width: '20vw', height: '45vh' },
   },
   {
-    src: '/images/optimized/tourism.webp',
+    src: '/images/optimized/parallax-field-man.png',
     scale: [1, 5] as [number, number],
     style: { left: '27.5vw', width: '25vw', height: '25vh' },
   },
