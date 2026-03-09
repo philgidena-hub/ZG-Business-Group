@@ -3,7 +3,6 @@ import {
   Introduction,
   Industries,
   ImpactQuote,
-  CommunityImpact,
   Testimonials,
   Gallery,
   Partners,
@@ -81,9 +80,6 @@ export default async function HomePage() {
         author={settings?.impact_quote_author}
         title={settings?.impact_quote_title}
       />
-
-      {/* Community Impact - CSR initiatives */}
-      <CommunityImpact />
 
       {/* Testimonials - Partner and government endorsements */}
       <Testimonials />

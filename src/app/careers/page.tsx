@@ -130,7 +130,7 @@ export default function CareersPage() {
           <div className="absolute inset-0 bg-gradient-to-r from-earth-anchor/95 via-earth-anchor/80 to-earth-anchor/60" />
         </div>
 
-        <Container className="relative z-10 py-32">
+        <Container className="relative z-10 py-20 md:py-32">
           <div className="max-w-3xl">
             <FadeIn>
               <Text size="caption" color="gold" className="uppercase tracking-wider mb-4">
@@ -409,7 +409,7 @@ export default function CareersPage() {
             </div>
           </FadeIn>
 
-          <FadeInStagger stagger={0.05} className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <FadeInStagger stagger={0.05} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
             {subsidiaries.slice(0, 8).map((company) => (
               <FadeInStaggerItem key={company.id}>
                 <motion.div

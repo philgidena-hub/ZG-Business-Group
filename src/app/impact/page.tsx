@@ -82,7 +82,7 @@ export default function ImpactPage() {
   return (
     <main>
       {/* Hero Section */}
-      <section ref={heroRef} className="relative h-[80vh] min-h-[600px] overflow-hidden">
+      <section ref={heroRef} className="relative h-[70vh] min-h-[500px] md:h-[80vh] md:min-h-[600px] overflow-hidden">
         <motion.div className="absolute inset-0" style={{ y: imageY }}>
           <Image
             src="/images/impact/impact-community.jpg"
@@ -125,9 +125,9 @@ export default function ImpactPage() {
       </section>
 
       {/* Impact Stats */}
-      <section className="py-16 bg-earth-anchor relative -mt-20 z-20">
+      <section className="py-10 md:py-16 bg-earth-anchor relative -mt-10 md:-mt-20 z-20">
         <Container>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
             {impactStats.map((stat, index) => (
               <FadeIn key={stat.label} delay={index * 0.1}>
                 <div className="text-center">
@@ -168,7 +168,7 @@ export default function ImpactPage() {
             </div>
           </FadeIn>
 
-          <div className="space-y-20">
+          <div className="space-y-12 md:space-y-20">
             {impactAreas.map((area, index) => (
               <FadeIn key={area.title} delay={0.1}>
                 <div className={cn(

@@ -114,7 +114,7 @@ export function Footer() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 }}
-                className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight"
               >
                 Ready to start your
                 <br />
@@ -155,7 +155,7 @@ export function Footer() {
 
       {/* Main Footer Content */}
       <Container className="relative py-16 lg:py-20">
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-12 gap-8 lg:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-12 gap-8 lg:gap-6">
           {/* Brand Column */}
           <div className="col-span-2 md:col-span-4 lg:col-span-4">
             {/* Logo */}
@@ -165,7 +165,7 @@ export function Footer() {
                 alt="ZG Business Group"
                 width={360}
                 height={100}
-                className="h-40 w-auto brightness-0 invert transition-opacity duration-300 group-hover:opacity-80"
+                className="h-20 sm:h-28 md:h-36 lg:h-52 w-auto brightness-0 invert transition-opacity duration-300 group-hover:opacity-80"
               />
             </Link>
 

@@ -59,9 +59,9 @@ export function Introduction({
     >
 
       <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
           {/* Left Column - Image & Stats */}
-          <div className="lg:col-span-5 lg:sticky lg:top-32">
+          <div className="lg:col-span-5 lg:sticky lg:top-32 pb-12 lg:pb-0">
             <FadeIn>
               <div className="relative">
                 {/* Main image with frame effect */}
@@ -79,7 +79,7 @@ export function Introduction({
 
                 {/* Decorative frame */}
                 <motion.div
-                  className="absolute -bottom-4 -right-4 w-full h-full border-2 border-highland-gold/20 rounded-2xl -z-10"
+                  className="hidden sm:block absolute -bottom-4 -right-4 w-full h-full border-2 border-highland-gold/20 rounded-2xl -z-10"
                   initial={{ opacity: 0, x: 20, y: 20 }}
                   whileInView={{ opacity: 1, x: 0, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.3 }}
@@ -88,7 +88,7 @@ export function Introduction({
 
                 {/* Floating stat card */}
                 <motion.div
-                  className="absolute -bottom-8 -left-4 md:left-8 bg-earth-anchor text-white p-6 rounded-xl shadow-2xl"
+                  className="absolute -bottom-10 left-0 sm:left-4 md:left-8 bg-earth-anchor text-white p-4 sm:p-6 rounded-xl shadow-2xl"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.5 }}

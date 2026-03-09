@@ -303,7 +303,7 @@ export function Hero({
               {/* Animated Headline - Multi-line for impact */}
               <div className="mb-8">
                 <h1
-                  className="text-5xl md:text-6xl lg:text-8xl tracking-tight text-white leading-[0.95]"
+                  className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl tracking-tight text-white leading-[0.95]"
                   style={{ fontFamily: 'var(--font-display)' }}
                 >
                   <motion.span
@@ -400,7 +400,7 @@ export function Hero({
         <div className="border-t border-white/10 backdrop-blur-sm bg-earth-anchor/30">
           <Container>
             <FadeIn delay={1.8} direction="up">
-              <div className="py-8 grid grid-cols-2 md:grid-cols-4 gap-8">
+              <div className="py-4 md:py-8 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
                 {displayStats.map((stat, index) => (
                   <motion.div
                     key={stat.label}

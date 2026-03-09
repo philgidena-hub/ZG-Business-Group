@@ -227,10 +227,10 @@ export function Navigation({ onClose }: NavigationProps) {
                   info@zggroup.com
                 </a>
                 <a
-                  href="tel:+251111234567"
+                  href="tel:+251960555551"
                   className="block text-paper-white/70 hover:text-paper-white transition-colors duration-fast"
                 >
-                  +251 11 123 4567
+                  +251 96 055 5551
                 </a>
               </div>
             </motion.div>
