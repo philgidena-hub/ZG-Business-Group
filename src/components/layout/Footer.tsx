@@ -261,14 +261,15 @@ export function Footer() {
 
             {/* Made by Wari */}
             <div className="flex items-center gap-2">
-              <span className="text-xs text-paper-white/30">Made by</span>
+              <span className="text-xs text-paper-white/50">Made by</span>
               <Image
                 src="/Wari Comunnication Logo Finall 2-01.png"
                 alt="Wari Communications"
                 width={80}
                 height={24}
-                className="h-5 w-auto opacity-40 hover:opacity-70 transition-opacity duration-300"
+                className="h-6 w-auto opacity-70 hover:opacity-100 transition-opacity duration-300"
               />
+              <span className="text-xs text-paper-white/50">Wari Communication</span>
             </div>
 
             {/* Legal Links */}

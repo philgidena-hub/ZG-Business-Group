@@ -59,15 +59,15 @@ export function Partners() {
             {duplicatedLogos.map((partner, index) => (
               <div
                 key={`${partner.slug}-${index}`}
-                className="flex-shrink-0 flex items-center justify-center px-5 md:px-8 py-4 md:py-5 bg-white rounded-lg border border-neutral-100 hover:border-highland-gold/30 hover:shadow-md transition-all duration-300 group"
+                className="flex-shrink-0 flex items-center justify-center px-6 md:px-10 py-5 md:py-6 bg-white rounded-lg border border-neutral-100 hover:border-highland-gold/30 hover:shadow-md transition-all duration-300 group"
               >
-                <div className="relative w-28 h-12 md:w-36 md:h-14">
+                <div className="relative w-40 h-16 md:w-52 md:h-20">
                   <Image
                     src={partner.logo}
                     alt={`${partner.name} logo`}
                     fill
                     className="object-contain filter grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
-                    sizes="(max-width: 768px) 112px, 144px"
+                    sizes="(max-width: 768px) 160px, 208px"
                   />
                 </div>
               </div>
