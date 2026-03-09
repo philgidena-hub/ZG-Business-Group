@@ -329,7 +329,7 @@ interface LightboxProps {
 function Lightbox({ image, currentIndex, totalImages, onClose, onPrev, onNext }: LightboxProps) {
   return (
     <motion.div
-      className="fixed inset-0 z-[100] flex items-center justify-center"
+      className="fixed inset-0 z-[500] flex items-center justify-center"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -374,6 +374,16 @@ function Lightbox({ image, currentIndex, totalImages, onClose, onPrev, onNext }:
               sizes="100vw"
               priority
             />
+            {/* Close button — top-right corner of the image */}
+            <button
+              onClick={onClose}
+              className="absolute top-3 right-3 z-10 w-11 h-11 rounded-full bg-highland-gold hover:bg-highland-gold/80 flex items-center justify-center text-earth-anchor transition-all duration-300 shadow-lg"
+              aria-label="Close gallery"
+            >
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
           </motion.div>
         </AnimatePresence>
       </div>
@@ -407,16 +417,6 @@ function Lightbox({ image, currentIndex, totalImages, onClose, onPrev, onNext }:
         </button>
       </div>
 
-      {/* Close button — rendered last to sit on top of everything */}
-      <button
-        onClick={onClose}
-        className="absolute top-4 right-4 z-[200] w-12 h-12 rounded-full bg-highland-gold hover:bg-highland-gold/80 flex items-center justify-center text-earth-anchor transition-all duration-300 shadow-lg"
-        aria-label="Close gallery"
-      >
-        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </button>
     </motion.div>
   );
 }
