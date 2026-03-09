@@ -96,7 +96,7 @@ export function Header({ transparent = false }: HeaderProps) {
             className={cn(
               'flex items-center justify-between',
               'transition-all duration-normal',
-              isScrolled ? 'h-20' : 'h-28'
+              isScrolled ? 'h-16' : 'h-20'
             )}
           >
             {/* Logo */}
@@ -220,7 +220,7 @@ function Logo({ isScrolled, isMenuOpen, transparent }: LogoProps) {
         height={100}
         className={cn(
           'w-auto transition-all duration-300',
-          isScrolled ? 'h-[60px] sm:h-[72px] lg:h-[88px]' : 'h-14 sm:h-16 lg:h-[72px]'
+          isScrolled ? 'h-8 sm:h-9 lg:h-10' : 'h-10 sm:h-11 lg:h-12'
         )}
         priority
       />
