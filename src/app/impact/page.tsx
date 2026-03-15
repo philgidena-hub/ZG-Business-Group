@@ -85,7 +85,7 @@ export default function ImpactPage() {
       <section ref={heroRef} className="relative h-[70vh] min-h-[500px] md:h-[80vh] md:min-h-[600px] overflow-hidden">
         <motion.div className="absolute inset-0" style={{ y: imageY }}>
           <Image
-            src="/images/impact/impact-community.jpg"
+            src="/impact page/IMG_6927 (2).PNG"
             alt="Community Impact"
             fill
             priority
