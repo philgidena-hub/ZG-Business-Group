@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
 import { cn } from '@/lib/utils';
@@ -213,16 +212,14 @@ function Logo({ isScrolled, isMenuOpen, transparent }: LogoProps) {
 
   return (
     <div className="flex items-center">
-      <Image
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
         src={useWhiteVersion ? "/gallery/ZG BUSINESS GROUP REVERSE COLOR.svg" : "/gallery/ZG Business Group logo.svg"}
         alt="ZG Business Group"
-        width={400}
-        height={100}
         className={cn(
           'w-auto transition-all duration-300',
           isScrolled ? 'h-12 sm:h-14 lg:h-16' : 'h-10 sm:h-11 lg:h-12'
         )}
-        priority
       />
     </div>
   );
