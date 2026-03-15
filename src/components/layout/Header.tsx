@@ -220,7 +220,7 @@ function Logo({ isScrolled, isMenuOpen, transparent }: LogoProps) {
         height={100}
         className={cn(
           'w-auto transition-all duration-300',
-          isScrolled ? 'h-8 sm:h-9 lg:h-10' : 'h-10 sm:h-11 lg:h-12'
+          isScrolled ? 'h-10 sm:h-11 lg:h-12' : 'h-12 sm:h-13 lg:h-14'
         )}
         priority
       />
