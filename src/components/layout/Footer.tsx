@@ -265,9 +265,9 @@ export function Footer() {
               <Image
                 src="/Wari Comunnication Logo Finall 2-01.png"
                 alt="Wari Communications"
-                width={80}
-                height={24}
-                className="h-6 w-auto opacity-70 hover:opacity-100 transition-opacity duration-300"
+                width={160}
+                height={48}
+                className="h-10 w-auto brightness-0 invert opacity-80 hover:opacity-100 transition-opacity duration-300"
               />
               <span className="text-xs text-paper-white/50">Wari Communication</span>
             </div>
