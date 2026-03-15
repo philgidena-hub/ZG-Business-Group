@@ -155,7 +155,7 @@ export default function IndustryPageClient({ sector, relatedSectors }: IndustryP
           </FadeIn>
           <FadeIn delay={0.1}>
             <StatCounter
-              value={sector.subsidiary_count || 3}
+              value={11}
               label="Companies"
               size="md"
             />
@@ -182,9 +182,9 @@ export default function IndustryPageClient({ sector, relatedSectors }: IndustryP
       {/* Overview Section */}
       <Section size="lg">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          <div className="lg:col-span-4">
+          <div className="lg:col-span-4 bg-gold-secondary rounded-2xl p-8">
             <FadeIn>
-              <Text size="caption" color="gold" className="uppercase tracking-wider mb-4">
+              <Text size="caption" className="uppercase tracking-wider mb-4 text-white">
                 Overview
               </Text>
               <AccentLine size="md" />
@@ -204,7 +204,7 @@ export default function IndustryPageClient({ sector, relatedSectors }: IndustryP
 
               {/* Location */}
               {sector.location && (
-                <div className="mt-6 flex items-center gap-2 text-neutral-600">
+                <div className="mt-6 flex items-center gap-2 text-white">
                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
