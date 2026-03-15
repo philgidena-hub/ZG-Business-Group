@@ -180,11 +180,11 @@ export default function IndustryPageClient({ sector, relatedSectors }: IndustryP
       </Section>
 
       {/* Overview Section */}
-      <Section size="lg">
+      <Section size="lg" background="earth">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          <div className="lg:col-span-4 bg-gold-secondary rounded-2xl p-8">
+          <div className="lg:col-span-4">
             <FadeIn>
-              <Text size="caption" className="uppercase tracking-wider mb-4 text-white">
+              <Text size="caption" className="uppercase tracking-wider mb-4 text-highland-gold">
                 Overview
               </Text>
               <AccentLine size="md" />
@@ -204,7 +204,7 @@ export default function IndustryPageClient({ sector, relatedSectors }: IndustryP
 
               {/* Location */}
               {sector.location && (
-                <div className="mt-6 flex items-center gap-2 text-white">
+                <div className="mt-6 flex items-center gap-2 text-paper-white/80">
                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
@@ -217,7 +217,7 @@ export default function IndustryPageClient({ sector, relatedSectors }: IndustryP
 
           <div className="lg:col-span-7 lg:col-start-6">
             <FadeIn delay={0.1}>
-              <Text size="lg" className="mb-6 whitespace-pre-line">
+              <Text size="lg" className="mb-6 whitespace-pre-line text-paper-white/90">
                 {sector.full_description || sector.introduction || sector.description || `Explore our ${sector.name?.toLowerCase()} operations and discover how we're driving growth and innovation across Ethiopia.`}
               </Text>
             </FadeIn>
