@@ -14,6 +14,8 @@ export { FeaturedProject } from './FeaturedProject';
 
 export { ImpactQuote } from './ImpactQuote';
 
+export { EnvironmentSection } from './EnvironmentSection';
+
 export { CommunityImpact } from './CommunityImpact';
 
 export { LatestNews } from './LatestNews';

@@ -3,6 +3,7 @@ import {
   Introduction,
   Industries,
   ImpactQuote,
+  EnvironmentSection,
   Testimonials,
   Gallery,
   Partners,
@@ -80,6 +81,9 @@ export default async function HomePage() {
         author={settings?.impact_quote_author}
         title={settings?.impact_quote_title}
       />
+
+      {/* Environmental Stewardship - Reforestation & climate initiatives */}
+      <EnvironmentSection />
 
       {/* Testimonials - Partner and government endorsements */}
       <Testimonials />
